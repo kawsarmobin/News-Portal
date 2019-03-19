@@ -38,9 +38,6 @@
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="{{ asset('master/css/themes/all-themes.css') }}" rel="stylesheet" />
-
-    <!-- Styles -->
-    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
 </head>
 
 <body class="theme-red">
@@ -113,10 +110,33 @@
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
                     <li class="active">
-                        <a href="index.html">
+                        <a href="{{ route('home') }}">
                             <i class="material-icons">home</i>
                             <span>Home</span>
                         </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">trending_down</i>
+                            <span>Footer</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="{{ route('about.create') }}">
+                                    <span>About</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <span>Terms</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <span>Privacy</span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
@@ -185,7 +205,7 @@
     <script src="{{ asset('js/app.js') }}"></script>
 
     <!-- Jquery Core Js -->
-    <script src="{{ asset('master/plugins/jquery/jquery.min.js') }}"></script>
+    {{-- <script src="{{ asset('master/plugins/jquery/jquery.min.js') }}"></script> --}}
 
     <!-- Bootstrap Core Js -->
     <script src="{{ asset('master/plugins/bootstrap/js/bootstrap.js') }}"></script>
@@ -222,6 +242,9 @@
     <!-- Custom Js -->
     <script src="{{ asset('master/js/admin.js') }}"></script>
     <script src="{{ asset('master/js/pages/index.js') }}"></script>
+
+    <script src="{{ asset('master/plugins/ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('master/js/pages/forms/editors.js') }}"></script>
 
     <!-- Demo Js -->
     <script src="{{ asset('master/js/demo.js') }}"></script>
