@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Footer;
 
+use Session;
 use App\Models\About;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -38,8 +39,10 @@ class AboutsController extends Controller
 
         if ($about = About::first()) {
             $about->update($attributes);
+            Session::flash('success', 'About has been updated.');
         } else {
             About::create($attributes);
+            Session::flash('success', 'About has been created.');
         }
 
         return back();
