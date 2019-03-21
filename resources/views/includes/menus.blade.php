@@ -16,13 +16,13 @@
             <ul class="ml-menu">
                 <li>
                     <a href="{{ route('about.create') }}">
-                            <span>About</span>
-                        </a>
+                        <span>About</span>
+                    </a>
                 </li>
                 <li>
-                    <a href="javascript:void(0);">
-                            <span>Terms</span>
-                        </a>
+                    <a href="{{ route('terms.create') }}">
+                        <span>Terms</span>
+                    </a>
                 </li>
                 <li>
                     <a href="javascript:void(0);">

@@ -18,5 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
+/* About */
 Route::resource('/about', 'Admin\Footer\AboutsController');
+/* Terms */
+Route::resource('/terms', 'Admin\Footer\TermsController');
