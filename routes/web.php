@@ -22,3 +22,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/about', 'Admin\Footer\AboutsController');
 /* Terms */
 Route::resource('/terms', 'Admin\Footer\TermsController');
+/* Privacy */
+Route::resource('/privacy', 'Admin\Footer\PrivaciesController');

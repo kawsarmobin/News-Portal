@@ -25,9 +25,9 @@
                     </a>
                 </li>
                 <li>
-                    <a href="javascript:void(0);">
-                            <span>Privacy</span>
-                        </a>
+                    <a href="{{ route('privacy.create') }}">
+                        <span>Privacy</span>
+                    </a>
                 </li>
             </ul>
         </li>
