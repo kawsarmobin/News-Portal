@@ -45,11 +45,16 @@
                         <a class="nav-link" href="#">@include('includes.frontend.postSV') Post |</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('topics.index') }}">@include('includes.frontend.topicSV') Topic |</a>
+                        <a class="nav-link" href="{{ route('topic.follows.index') }}">@include('includes.frontend.topicSV') Topic |</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Profile</a>
-                    </li>
+                    <div class="btn-group">
+                        <a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item">My Posts</a>
+                            <a class="dropdown-item">My Information</a>
+                            <a class="dropdown-item" href="{{ route('topics.index') }}">My Topics</a>
+                        </div>
+                    </div>
                 </ul>
             </div>
         </div>

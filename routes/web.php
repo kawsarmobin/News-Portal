@@ -27,5 +27,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/privacy', 'Admin\Footer\PrivaciesController');
     /* Topics */
     Route::resource('/topics', 'Frontend\TopicsController');
+    /* Topic Follows */
+    Route::get('/topic/{topic_id}/follow', 'Frontend\TopicFollowsController@follow')->name('topic.follows.follow');
 });
+/* Topic Follows */
+Route::get('/all-topic', 'Frontend\TopicFollowsController@index')->name('topic.follows.index');
+
+
 

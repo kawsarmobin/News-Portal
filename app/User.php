@@ -29,8 +29,13 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
     
-    public function topics()
+    public function ownTopics()
     {
         return $this->hasMany(Topic::class)->orderBy('name');
+    }
+
+    public function topics()
+    {
+        return $this->belongsToMany(Topic::class)->withTimestamps();
     }
 }

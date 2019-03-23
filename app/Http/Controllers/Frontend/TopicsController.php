@@ -17,7 +17,7 @@ class TopicsController extends Controller
     public function index()
     {
         return view('frontend.topics.index', [
-            'topics' => auth()->user()->topics,
+            'topics' => auth()->user()->ownTopics,
         ]);
     }
 
