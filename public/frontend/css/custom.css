@@ -3,29 +3,50 @@
  * Copyright 2013-2019 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-shop-homepage/blob/master/LICENSE)
  */
+
 body {
   padding-top: 56px;
   background-color: #FAFAFA;
   font-family: 'Lato', sans-serif;
 }
 
-html, p, h1 {
+.page-content {
+  min-height: 82.3vh;
+}
+
+html, p, h1, h2, h3, h4 {
   font-family: 'Lato', sans-serif;
 }
 
-.color-main > div > a{
-  color: #B92B27 !important;
+.color-main>div>a {
   height: 100%;
-    font-weight: 900;
-    font-family: 'Lato', sans-serif;
-    font-size: 20px;
-    line-height: 1.4;
+  font-weight: 900;
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+  line-height: 1.4;
+  color: #B92B27 !important;
 }
 
 .navbar {
   background-color: white;
   border-bottom: 1px solid #ddd;
-  box-shadow: 0 3px 2px -2px rgba(200,200,200,0.2);
+  box-shadow: 0 3px 2px -2px rgba(200, 200, 200, 0.2);
 }
 
+#example1 {
+  padding: 10px;
+  box-shadow: 1px 1px 20px #ccc;
+}
+
+#topics {
+  padding: 10px;
+  box-shadow: 1px 1px 20px #ccc;
+}
+
+.span {
+  color: #495057;
+}
+
+.button {
+  border-radius: 15px; padding: 5px 20px 5px 20px
 }

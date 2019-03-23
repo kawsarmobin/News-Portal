@@ -1,11 +1,5 @@
 @extends('layouts.frontend') 
 @section('content')
-<style>
-    #example1 {
-        padding: 10px;
-        box-shadow: 5px 10px 25px #888888;
-    }
-</style>
 <div class="col-lg-8">
 
     <div class="my-4">

@@ -53,7 +53,7 @@
         "newestOnTop": false,
         "progressBar": true,
         "positionClass": "toast-bottom-right",
-        "preventDuplicates": false,
+        "preventDuplicates": true,
         "onclick": null,
         "showDuration": "300",
         "hideDuration": "1000",
@@ -67,6 +67,7 @@
     @if (Session::has('success'))
         toastr.success("{{ Session::get('success') }}")
     @endif
+
 </script>
 
 <!-- Demo Js -->

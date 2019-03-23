@@ -17,6 +17,11 @@
     <link href="{{ asset('frontend/css/custom.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Toaster Css -->
+    <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet">
+
 </head>
 
 <body>
@@ -40,7 +45,7 @@
                         <a class="nav-link" href="#">@include('includes.frontend.postSV') Post |</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">@include('includes.frontend.topicSV') Topics |</a>
+                        <a class="nav-link" href="{{ route('topics.index') }}">@include('includes.frontend.topicSV') Topic |</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Profile</a>
@@ -51,7 +56,7 @@
     </nav>
 
     <!-- Page Content -->
-    <div class="container">
+    <div class="container page-content">
 
         <div class="row">
 
@@ -66,7 +71,7 @@
     </div>
 
     <!-- Footer -->
-    <footer class="py-5 bg-dark">
+    <footer class="py-3 bg-dark">
         <div class="container">
             <p class="m-0 text-center text-white">Copyright &copy; Summify 2019</p>
         </div>
@@ -76,6 +81,31 @@
     <!-- Bootstrap core JavaScript -->
     <script src="{{ asset('js/app.js') }}"></script>
 
+    <!-- Toastr Js -->
+    <script src="{{ asset('js/toastr.min.js') }}"></script><script>
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": true,
+            "positionClass": "toast-bottom-right",
+            "preventDuplicates": true,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "4000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+
+        @if (Session::has('success'))
+            toastr.success("{{ Session::get('success') }}")
+        @endif
+        
+    </script>
 </body>
 
 </html>
