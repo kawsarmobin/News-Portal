@@ -82,7 +82,7 @@ class TopicsController extends Controller
      */
     public function update(Request $request, Topic $topic)
     {
-        $attributes = $this->validateTopic();
+        $attributes = $this->validateUpdateTopic($topic->id);
 
         $attributes['user_id'] = auth()->user()->id;
 
@@ -111,7 +111,14 @@ class TopicsController extends Controller
     public function validateTopic()
     {
         return request()->validate([
-            'name' => 'required|string|min:2'
+            'name' => 'required|string|min:2|unique:topics'
+        ]);
+    }
+
+    public function validateUpdateTopic($id)
+    {
+        return request()->validate([
+            'name' => 'required|string|min:2|unique:topics,name,'.$id
         ]);
     }
 }
