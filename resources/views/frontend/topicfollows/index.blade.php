@@ -21,7 +21,7 @@
 
                                     @if (auth()->check())
                                     <td>
-                                        <a href="{{ route('topic.follows.follow', $topic['id']) }}">{{ $topic->followTitle() }}</a> 
+                                        <a href="{{ route('topic.follows.follow', $topic['id']) }}" class="btn btn-sm btn-outline-secondary">{{ $topic->followTitle() }}</a> 
                                     </td>
                                     @endif
                                 </tr>
