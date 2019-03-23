@@ -13,8 +13,8 @@ class Topic extends Model
         return $this->belongsToMany('App\User')->withTimestamps();
     }
 
-    public function followTitle()
+    public function isFollowed()
     {
-        return auth()->user()->topics()->where('topic_id',$this->id)->first()?'Unfollow':'Follow';
+        return auth()->user()->topics()->where('topic_id',$this->id)->first()?true:false;
     }
 }

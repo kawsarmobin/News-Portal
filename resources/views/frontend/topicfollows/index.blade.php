@@ -17,11 +17,11 @@
                             <tbody>
                                 @foreach ($topics as $topic)
                                 <tr>
-                                    <td><span class="pl-3" style="color: #007ACC !important"><b>{{ $topic['name'] }}</b></span></td>
+                                    <td style=" padding: 5px"><span class="pl-3" style="color: #007ACC !important"><b>{{ $topic['name'] }}</b></span></td>
 
                                     @if (auth()->check())
-                                    <td>
-                                        <a href="{{ route('topic.follows.follow', $topic['id']) }}" class="btn btn-sm btn-outline-secondary">{{ $topic->followTitle() }}</a> 
+                                    <td style=" padding: 5px">
+                                        <a style="text-decoration: none" href="{{ route('topic.follows.follow', $topic['id']) }}" class="{{ $topic->isFollowed()?'text-secondary':'text-primary' }}">{{ $topic->isFollowed()?'Unfollow':'Follow' }}</a> 
                                     </td>
                                     @endif
                                 </tr>
