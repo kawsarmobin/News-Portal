@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.frontend')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-8 pt-5">
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
 
@@ -63,6 +63,10 @@
                             </div>
                         </div>
                     </form>
+                    <hr>
+                    <div class="text-center">
+                        <p>Create new account <a href="{{ route('register') }}">Sign up</a></p>
+                    </div>
                 </div>
             </div>
         </div>

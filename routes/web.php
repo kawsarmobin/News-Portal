@@ -17,14 +17,18 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['auth', 'is_admin']], function () {
+    /* Dashboard */
+    Route::get('/dashboard', 'HomeController@index')->name('home');
     /* About */
     Route::resource('/about', 'Admin\Footer\AboutsController');
     /* Terms */
     Route::resource('/terms', 'Admin\Footer\TermsController');
     /* Privacy */
     Route::resource('/privacy', 'Admin\Footer\PrivaciesController');
+});
+
+Route::group(['middleware' => ['auth']], function () {
     /* Own Topics */
     Route::resource('/topics', 'Frontend\TopicsController');
     /* Topic Follows */

@@ -58,3 +58,8 @@ html, p, h1, h2, h3, h4 {
 .cus-padding tr td{
   padding: 5px; 
 }
+
+.admin-top-dropdown{
+  margin-top: 15px !important;
+  margin-right: 15px !important;
+}

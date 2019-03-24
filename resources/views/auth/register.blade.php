@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.frontend')
 
 @section('content')
-<div class="container">
+<div class="container pt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -60,6 +60,22 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
+
+                        {{-- <div class="form-group row">
+                            <label for="avatar" class="col-md-4 col-form-label text-md-right">{{ __('Avatar') }}</label>
+
+                            <div class="col-md-6">
+                                <input type="file" name="avatar" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="website" class="col-md-4 col-form-label text-md-right">{{ __('Website') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="website" type="text" class="form-control" name="website" required>
+                            </div>
+                        </div> --}}
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

@@ -12,7 +12,11 @@ class TopicFollowsController extends Controller
     public function index()
     {       
         // $topics_with_follow = []; 
-        $topics = Topic::whereNotIn('user_id', [auth()->user()->id])->get();
+        if(auth()->check()){
+            $topics = Topic::whereNotIn('user_id', [auth()->user()->id])->orderBy('name')->get();
+        } else {
+            $topics = Topic::orderBy('name')->get();
+        }
         // $allready_follow_topic = auth()->user()->topics;
         
         // Itareate through all topics for check user already follow this topics

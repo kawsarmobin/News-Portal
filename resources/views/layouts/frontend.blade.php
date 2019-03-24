@@ -42,20 +42,38 @@
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('own-posts.create') }}">@include('includes.frontend.postSV') Post |</a>
-                    </li>
+                    
+                    @if (auth()->check())
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('own-posts.create') }}">@include('includes.frontend.postSV') Post |</a>
+                        </li>
+                    @endif
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('topic.follows.index') }}">@include('includes.frontend.topicSV') Topic |</a>
                     </li>
-                    <div class="btn-group">
-                        <a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="{{ route('own-posts.index') }}">My Posts</a>
-                            <a class="dropdown-item">My Information</a>
-                            <a class="dropdown-item" href="{{ route('topics.index') }}">My Topics</a>
+                    @if (auth()->check())
+                        <div class="btn-group">
+                            <a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="{{ route('own-posts.index') }}">My Posts</a>
+                                <a class="dropdown-item">My Information</a>
+                                <a class="dropdown-item" href="{{ route('topics.index') }}">My Topics</a>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+            
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
                         </div>
-                    </div>
+                    @else
+                        <div class="btn-group">
+                            <a class="nav-link" href="{{ route('login') }}"> <i class="fa fa-sign-in text-gray"></i>  Sign In</a>                         
+                        </div>
+                    @endif
                 </ul>
             </div>
         </div>

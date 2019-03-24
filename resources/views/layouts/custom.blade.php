@@ -66,7 +66,25 @@
                     <!-- Call Search -->
                     <li><a href="javascript:void(0);" class="js-search" data-close="true"><i class="material-icons">search</i></a></li>
                     <!-- #END# Call Search -->
-                    <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>
+                    <li class="pull-right">
+                        <a href="javascript:void(0);" class="js-right-sidebar" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><i class="material-icons">more_vert</i>
+                        </a>
+                        <ul class="dropdown-menu pull-right" style="margin: 15px 15px 0 0 !important">
+                            <li><a href="javascript:void(0);" class=" waves-effect waves-block">Another action</a></li>
+                            <li><a href="javascript:void(0);" class=" waves-effect waves-block">Something else here</a></li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+            
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
