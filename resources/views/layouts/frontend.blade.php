@@ -10,15 +10,15 @@
 
     <title>Summify</title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
+    
     <!-- Custom styles for this template -->
     <link href="{{ asset('frontend/css/custom.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    
     <!-- Toaster Css -->
     <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet">
 
@@ -31,18 +31,19 @@
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">Summify</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
-                aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+                        aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ url('/') }}">@include('includes.frontend.homeSV') Home |
-              <span class="sr-only">(current)</span>
-            </a>
+                        <a class="nav-link" href="{{ url('/') }}">
+                            @include('includes.frontend.homeSV') Home |
+                            <span class="sr-only">(current)</span>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">@include('includes.frontend.postSV') Post |</a>
+                        <a class="nav-link" href="{{ route('own-posts.create') }}">@include('includes.frontend.postSV') Post |</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('topic.follows.index') }}">@include('includes.frontend.topicSV') Topic |</a>
@@ -50,7 +51,7 @@
                     <div class="btn-group">
                         <a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item">My Posts</a>
+                            <a class="dropdown-item" href="{{ route('own-posts.index') }}">My Posts</a>
                             <a class="dropdown-item">My Information</a>
                             <a class="dropdown-item" href="{{ route('topics.index') }}">My Topics</a>
                         </div>
@@ -62,17 +63,9 @@
 
     <!-- Page Content -->
     <div class="container page-content">
-
-        <div class="row">
-
-            <div class="col-lg-2">
-
-            </div>
-
+        <div class="row justify-content-center">
             @yield('content')
-
         </div>
-
     </div>
 
     <!-- Footer -->
@@ -85,6 +78,15 @@
 
     <!-- Bootstrap core JavaScript -->
     <script src="{{ asset('js/app.js') }}"></script>
+
+    <script src="{{ asset('master/plugins/ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('master/js/pages/forms/editors.js') }}"></script>
+    <script type="text/javascript">
+        CKEDITOR.replace('ckeditor', {
+            width: 620,
+            height: 100,
+        });
+    </script>
 
     <!-- Toastr Js -->
     <script src="{{ asset('js/toastr.min.js') }}"></script><script>

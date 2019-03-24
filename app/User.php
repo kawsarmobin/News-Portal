@@ -6,6 +6,7 @@ use App\Models\Frontend\Topic;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Models\Frontend\Post;
 
 class User extends Authenticatable
 {
@@ -37,5 +38,10 @@ class User extends Authenticatable
     public function topics()
     {
         return $this->belongsToMany(Topic::class)->withTimestamps();
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class)->with('topic');
     }
 }

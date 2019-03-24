@@ -17,4 +17,9 @@ class Topic extends Model
     {
         return auth()->user()->topics()->where('topic_id',$this->id)->first()?true:false;
     }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }

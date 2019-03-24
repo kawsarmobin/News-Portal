@@ -25,10 +25,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/terms', 'Admin\Footer\TermsController');
     /* Privacy */
     Route::resource('/privacy', 'Admin\Footer\PrivaciesController');
-    /* Topics */
+    /* Own Topics */
     Route::resource('/topics', 'Frontend\TopicsController');
     /* Topic Follows */
     Route::get('/topic/{topic_id}/follow', 'Frontend\TopicFollowsController@follow')->name('topic.follows.follow');
+    /* Own Post */
+    Route::resource('/own-posts', 'Frontend\PostsController');
 });
 /* Topic Follows */
 Route::get('/all-topic', 'Frontend\TopicFollowsController@index')->name('topic.follows.index');
