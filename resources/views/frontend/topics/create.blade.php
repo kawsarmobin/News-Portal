@@ -1,10 +1,10 @@
 @extends('layouts.frontend') 
 @section('content')
-<div class="col-lg-8 p-5">
+<div class="col-lg-10 p-5">
     <div class="my-4">
         <section id="topics" style="background-color: #FFFFFF">
             <div class="row justify-content-center">
-                <div class="col-lg-8 p-5">
+                <div class="col-lg-10 p-5">
                     <h3><b>Create Topic</b></h3>
                     <hr>
                     <form action="{{ route('topics.store') }}" method="post">
@@ -30,5 +30,4 @@
         </section>
     </div>
 </div>
-<div class="col-lg-2"></div>
 @endsection

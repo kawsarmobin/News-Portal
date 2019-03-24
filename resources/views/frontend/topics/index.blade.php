@@ -1,6 +1,6 @@
 @extends('layouts.frontend') 
 @section('content')
-<div class="col-lg-8 p-5">
+<div class="col-lg-10 p-5">
     <div class="my-4">
         <section id="topics" style="background-color: #FFFFFF">
             <div class="row justify-content-center">
@@ -41,5 +41,4 @@
         </section>
     </div>
 </div>
-<div class="col-lg-2"></div>
 @endsection

@@ -1,6 +1,5 @@
 @extends('layouts.frontend') 
 @section('content')
-<div class="col-lg-1"></div>
 <div class="col-lg-10 p-5">
     <div class="my-4">
         <section id="topics" style="background-color: #FFFFFF">
@@ -19,5 +18,4 @@
         </section>
     </div>
 </div>
-<div class="col-lg-1"></div>
 @endsection
