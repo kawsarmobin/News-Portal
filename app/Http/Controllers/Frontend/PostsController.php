@@ -47,11 +47,11 @@ class PostsController extends Controller
         $attributes['user_id'] = auth()->user()->id;
         $attributes['token'] = str_random(60);
 
-        if (Post::create($attributes)) {
+        if ($post = Post::create($attributes)) {
             Session::flash('success', 'Post has been added successfull.');
         }
 
-        return back();
+        return redirect()->route('own-posts.link',$post->id);
     }
 
     /**
@@ -124,5 +124,17 @@ class PostsController extends Controller
             'summery' => 'required',
             'source_link' => 'nullable|url',
         ]);
+    }
+
+    public function link(Post $own_post)
+    {
+        return view('frontend.own.posts.link')
+                ->with('post', $own_post);
+    }
+
+    public function post_link()
+    {
+        return view('frontend.own.posts.externel_link')
+                ->with('post_link_lists', auth()->user()->posts);
     }
 }

@@ -20,8 +20,8 @@
                             <tbody>
                                 @foreach ($posts as $key => $post)
                                 <tr>
-                                    <td><span class="pl-3" style="color: #007ACC !important"><b>{{ $post->title }}</b></span></td>
-                                    <td>
+                                    <td><span style="color: #007ACC !important"><b>{{ $post->title }}</b></span></td>
+                                    <td width="22%">
                                         <a href="{{ route('own-posts.show', $post->id) }}" class="btn btn-sm btn-outline-info"><i class="fa fa-eye"></i> </a> &nbsp;
                                         <a href="{{ route('own-posts.edit', $post->id) }}" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit"></i> </a> &nbsp;
                                         @include('includes._confirm_delete',[

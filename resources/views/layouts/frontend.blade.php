@@ -12,13 +12,13 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
-    
+
     <!-- Custom styles for this template -->
     <link href="{{ asset('frontend/css/custom.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    
+
     <!-- Toaster Css -->
     <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet">
 
@@ -31,48 +31,50 @@
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">Summify</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
                         <a class="nav-link" href="{{ url('/') }}">
-                            @include('includes.frontend.homeSV') Home |
+    @include('includes.frontend.homeSV') Home |
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
-                    
+
                     @if (auth()->check())
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('own-posts.create') }}">@include('includes.frontend.postSV') Post |</a>
-                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('own-posts.create') }}">
+    @include('includes.frontend.postSV') Post |</a>
+                    </li>
                     @endif
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('topic.follows.index') }}">@include('includes.frontend.topicSV') Topic |</a>
+                        <a class="nav-link" href="{{ route('topic.follows.index') }}">
+    @include('includes.frontend.topicSV') Topic |</a>
                     </li>
                     @if (auth()->check())
-                        <div class="btn-group">
-                            <a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="{{ route('own-posts.index') }}">My Posts</a>
-                                <a class="dropdown-item">My Information</a>
-                                <a class="dropdown-item" href="{{ route('topics.index') }}">My Topics</a>
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
+                    <div class="btn-group">
+                        <a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="{{ route('own-posts.index') }}">My Posts</a>
+                            <a class="dropdown-item" href="{{ route('own-posts.post_link') }}">My Posts Link</a>
+                            <a class="dropdown-item">My Information</a>
+                            <a class="dropdown-item" href="{{ route('topics.index') }}">My Topics</a>
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
-            
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
-                            </div>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
                         </div>
+                    </div>
                     @else
-                        <div class="btn-group">
-                            <a class="nav-link" href="{{ route('login') }}"> <i class="fa fa-sign-in text-gray"></i>  Sign In</a>                         
-                        </div>
+                    <div class="btn-group">
+                        <a class="nav-link" href="{{ route('login') }}"> <i class="fa fa-sign-in text-gray"></i>  Sign In</a>
+                    </div>
                     @endif
                 </ul>
             </div>
@@ -107,7 +109,8 @@
     </script>
 
     <!-- Toastr Js -->
-    <script src="{{ asset('js/toastr.min.js') }}"></script><script>
+    <script src="{{ asset('js/toastr.min.js') }}"></script>
+    <script>
         toastr.options = {
             "closeButton": true,
             "debug": false,
@@ -129,7 +132,6 @@
         @if (Session::has('success'))
             toastr.success("{{ Session::get('success') }}")
         @endif
-        
     </script>
 </body>
 
