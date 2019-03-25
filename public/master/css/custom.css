@@ -1,0 +1,25 @@
+.no-border tr td{
+    border: none !important;
+}
+
+.cus-padding tr td{
+    padding: 5px; 
+}
+
+@media only screen and (min-width: 991px) {
+    .admin-profile-view {
+        text-align: right !important;
+        border-right: 1px solid #BDBDBD; 
+        margin-left: -20%;
+    }
+}
+
+.admin-top-dropdown {
+    margin-top: 15px !important;
+    margin-right: 15px !important;
+}
+
+.input-error{
+    font-size: 80%;
+    color: #FF5722
+}

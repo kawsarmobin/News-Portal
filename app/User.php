@@ -12,13 +12,16 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    const PATH = 'uploads/avatar';
+    const THUMBNAIL_PATH = self::PATH.'/thumbnail';
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','avatar','website','sub_title'
     ];
 
     /**
@@ -43,5 +46,20 @@ class User extends Authenticatable
     public function posts()
     {
         return $this->hasMany(Post::class)->with('topic');
+    }
+
+    public function isAdmin()
+    {
+        return $this->is_admin?true:false;
+    }
+
+    public function getUserAvatarAttribute()
+    {
+        return asset(self::PATH.'/'.$this->avatar);
+    }
+
+    public function getAvatarThumbnailAttribute()
+    {
+        return asset(self::THUMBNAIL_PATH.'/'.$this->avatar);
     }
 }
