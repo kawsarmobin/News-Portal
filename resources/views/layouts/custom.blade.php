@@ -59,7 +59,7 @@
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="index.html">ADMINBSB - MATERIAL DESIGN</a>
+                <a class="navbar-brand" href="">{{ config('app.name') }}</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -70,8 +70,7 @@
                         <a href="javascript:void(0);" class="js-right-sidebar" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><i class="material-icons">more_vert</i>
                         </a>
                         <ul class="dropdown-menu pull-right" style="margin: 15px 15px 0 0 !important">
-                            <li><a href="javascript:void(0);" class=" waves-effect waves-block">Another action</a></li>
-                            <li><a href="javascript:void(0);" class=" waves-effect waves-block">Something else here</a></li>
+                            <li><a href="{{ route('admin.profile.index') }}" class=" waves-effect waves-block">Profile</a></li>
                             <li>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
@@ -96,11 +95,15 @@
             <!-- User Info -->
             <div class="user-info">
                 <div class="image">
-                    <img src="{{ asset('master/images/user.png') }}" width="48" height="48" alt="User" />
+                    @if (auth()->user()->avatar)
+                        <img width="48px" class="rounded-circle" src="{{ auth()->user()->avatar_thumbnail }}" width="80%" alt="">
+                    @else
+                        <img width="48px" class="rounded-circle" src="{{ asset('img/avatar.gif') }}" width="80%" alt="">
+                    @endif
                 </div>
                 <div class="info-container">
-                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe</div>
-                    <div class="email">john.doe@example.com</div>
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ auth()->user()->name }}</div>
+                    <div class="email">{{ auth()->user()->email }}</div>
                 </div>
             </div>
             <!-- #User Info -->

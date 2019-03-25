@@ -54,14 +54,22 @@
     @include('includes.frontend.topicSV') Topic |</a>
                     </li>
                     @if (auth()->check())
-                    <div class="btn-group">
-                        <a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="{{ route('own-posts.index') }}">My Posts</a>
-                            <a class="dropdown-item" href="{{ route('own-posts.post_link') }}">My Posts Link</a>
-                            <a class="dropdown-item">My Information</a>
-                            <a class="dropdown-item" href="{{ route('topics.index') }}">My Topics</a>
-                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                        <div class="btn-group">
+                            <a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                @if (auth()->user()->avatar)
+                                    <img width="30px" class="rounded-circle" src="{{ auth()->user()->avatar_thumbnail }}" width="80%" alt="">
+                                @else
+                                    <img width="30px" class="rounded-circle" src="{{ asset('img/avatar.gif') }}" width="80%" alt="">
+                                @endif
+                                Profile
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="{{ route('own-posts.index') }}">My Posts</a>
+                                <a class="dropdown-item" href="{{ route('own-posts.post_link') }}">My Posts Link</a>
+                                <a class="dropdown-item" href="{{ route('profile.index') }}">My Information</a>
+                                <a class="dropdown-item" href="{{ route('topics.index') }}">My Topics</a>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>

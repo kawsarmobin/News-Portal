@@ -16,6 +16,7 @@
 
 <!-- Custom Css -->
 <link href="{{ asset('master/css/style.css') }}" rel="stylesheet">
+<link href="{{ asset('master/css/custom.css') }}" rel="stylesheet">
 
 <!-- Toaster Css -->
 <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet">
