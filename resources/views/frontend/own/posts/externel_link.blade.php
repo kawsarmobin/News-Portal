@@ -10,7 +10,7 @@
                         <hr>
                     </div>
                     <div class="row" style="margin-right: 15px">
-                        <ol>
+                        <ol style="width: 100%">
                             @foreach ($post_link_lists as $pll)
                             <div style="border: 1px solid gray; border-radius: 5px; padding: 10px 20px 0px 20px" class="m-2">
                                 <li>

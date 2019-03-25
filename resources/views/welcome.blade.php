@@ -21,7 +21,11 @@
                         alt="AVATAR">
                 </div>
                 <div class="col-sm-10" style="padding: 16px 0 0 25px;">
-                    <a style="text-decoration: none; font-size: 18px;" href="" target="_blank">https://www.summify.com</a>
+                    @if ($post->user->website)
+                    <a style="text-decoration: none; font-size: 18px;" href="{{ $post->user->website }}" target="_blank">{{ $post->user->website }}</a>
+                    @else
+                    <p style="text-decoration: none; font-size: 18px;">{{ $post->user->name }}</p>
+                    @endif
                 </div>
             </div>
             <!--Main content-->
