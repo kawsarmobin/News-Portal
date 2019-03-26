@@ -1,13 +1,13 @@
 @extends('layouts.frontend') 
 @section('content')
-<div class="col-lg-8" style="font-family: lato">
+<div class="col-sm-8" style="font-family: lato">
     <div class="my-4">
         <!--Recent post-->
         <div class="row" style="margin: 0 15px -15px 15px; padding-bottom: -5px;">
-            <div class="col-lg-6">
+            <div class="col-sm-6">
                 <h2><b>Today</b></h2>
             </div>
-            <div class="col-lg-6">
+            <div class="col-sm-6">
                 <a class="float-right" style="margin-top: 8px; margin-left: 10px; text-decoration: none; color: gray;" href="{{ route('own-posts.create') }}">New</a>
                 <a class="float-right" style="margin-top: 8px; text-decoration: none; color: gray" href="{{ route('own-posts.create') }}">Popular</a>
             </div>
@@ -22,7 +22,6 @@
                     @else
                     <img style="width: 60px; border-radius: 35px; margin-top: 15px;" src="{{ asset('img/avatar.gif') }}" alt="">                    
                     @endif
-
                 </div>
                 <!--Website url-->
                 <div class="col-sm-10" style="padding: 16px 0 0 25px;">
