@@ -25,4 +25,10 @@ class HomeController extends Controller
         return view('welcome')
                 ->with('posts', $posts);
     }
+
+    public function singlePage($token)
+    {
+        return view('frontend.single_page')
+                ->with('post', Post::where('token', $token)->first());
+    }
 }

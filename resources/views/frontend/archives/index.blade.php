@@ -34,7 +34,7 @@
             <!--Main content-->
             <div class="card p-3 m-3">
                 <div>
-                    <h2><b>{{ $post->title }}</b></h2>
+                    <h2><b><a style="text-decoration: none;" href="{{ route('post.single.page', $post->token) }}">{{ $post->title }}</a></b></h2>
                 </div>
                 <div>
                     <p style="font-size: 15px; margin: 0"><b>{{ $post->topic->name }}</b> &nbsp; <span style="color: gray">{{ $post->created_at->diffForHumans() }}</span></p>
