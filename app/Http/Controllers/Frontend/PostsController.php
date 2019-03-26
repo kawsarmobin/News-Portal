@@ -28,8 +28,14 @@ class PostsController extends Controller
      */
     public function create()
     {
+        $user_id = auth()->user()->id;
+        $topics = Topic::select(['topics.id','topics.name'])
+                        ->leftJoin('topic_user','topics.id','=','topic_user.topic_id')
+                        ->where('topics.user_id', $user_id)
+                        ->orWhere('topic_user.user_id', $user_id)
+                        ->orderBy('topics.name')->get();
         return view('frontend.own.posts.create')
-                ->with('topics', Topic::orderBy('name')->get())
+                ->with('topics', $topics)
                 ->with('post', new Post());
     }
 
