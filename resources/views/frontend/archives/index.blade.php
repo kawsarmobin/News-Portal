@@ -3,7 +3,7 @@
 <div class="col-lg-10 p-5">
     <div class="my-4">
         <div class="card text-center text-white bg-primary p-1 m-3">
-            <h3><b>Archive</b></h3>
+            <h3><b>Posts Archive</b></h3>
         </div>
         @if ($posts->count()) @foreach ($posts as $post)
         <section class="card p-3 m-3">
