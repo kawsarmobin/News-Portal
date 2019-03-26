@@ -22,11 +22,15 @@
                                 <tr>
                                     <td><span class="pl-3" style="color: #007ACC !important"><b>{{ $topic->name }}</b></span></td>
                                     <td>
-                                        <a href="{{ route('topics.edit', $topic->id) }}" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit"></i> </a> &nbsp;
-                                        @include('includes._confirm_delete',[
-                                            'id' => $topic->id,
-                                            'action' => route('topics.destroy', $topic->id) 
-                                        ])
+                                        @can('update-topic', $topic)
+                                            <a href="{{ route('topics.edit', $topic->id) }}" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit"></i> </a> &nbsp;
+                                        @endcan
+                                        @can('delete-topic', $topic)
+                                            @include('includes._confirm_delete',[
+                                                'id' => $topic->id,
+                                                'action' => route('topics.destroy', $topic->id) 
+                                            ])
+                                        @endcan
                                     </td>
                                 </tr>
                                 @endforeach

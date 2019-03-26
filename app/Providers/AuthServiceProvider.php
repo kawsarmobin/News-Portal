@@ -25,6 +25,12 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('update-topic', function ($user,$topic) {
+            return $topic->posts->count()?false:true;
+        });
+
+        Gate::define('delete-topic', function ($user,$topic) {
+            return $topic->posts->count()?false:true;
+        });
     }
 }
