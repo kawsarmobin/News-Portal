@@ -17,7 +17,7 @@
                                     <h5 class="float-left">{{ $pll->title }}</h5>
                                     <a class="float-right btn btn-sm btn-outline-primary" href=""style="margin-bottom: 15px;" >Copy</a>
                                 </li>
-                                <input class="form-control" type="text" value="{{ route('own-posts.show', $pll->token) }}" readonly><br>
+                                <input class="form-control" type="text" value="{{ route('post.single.page', $pll->token) }}" readonly><br>
                             </div>
                             @endforeach
                         </ol>
