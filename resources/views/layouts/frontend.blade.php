@@ -38,20 +38,26 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
                         <a class="nav-link" href="{{ url('/') }}">
-    @include('includes.frontend.homeSV') Home |
+                            @include('includes.frontend.homeSV') Home |
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
-
                     @if (auth()->check())
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('own-posts.create') }}">
-    @include('includes.frontend.postSV') Post |</a>
+                            @include('includes.frontend.postSV') Post |
+                        </a>
                     </li>
                     @endif
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('topic.follows.index') }}">
-    @include('includes.frontend.topicSV') Topic |</a>
+                            @include('includes.frontend.topicSV') Topic |
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('archives.index') }}">
+                            @include('includes.frontend.homeSV') Archive |
+                        </a>
                     </li>
                     @if (auth()->check())
                         <div class="btn-group">
@@ -99,7 +105,7 @@
     <!-- Footer -->
     <footer class="py-3 bg-dark">
         <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Summify 2019</p>
+            <p class="m-0 text-center text-white">Copyright @include('includes.copyright') Summify. All rights reserved.</p>
         </div>
         <!-- /.container -->
     </footer>

@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'Frontend\HomeController@index');
+Route::get('/archives', 'Frontend\ArchivesController@index')->name('archives.index');
 
 Auth::routes();
 
