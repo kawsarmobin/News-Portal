@@ -11,7 +11,7 @@
                         @csrf
                         <div class="form-group">
                             <label class="control-label">Topic Name: </label>
-                            <input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" type="type" name="name" value="{{ old('name') }}" placeholder="Add a topic name">
+                            <input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" type="text" name="name" value="{{ old('name') }}" placeholder="Add a topic name">
                             
                             @if ($errors->has('name'))
                                 <span class="invalid-feedback" role="alert">

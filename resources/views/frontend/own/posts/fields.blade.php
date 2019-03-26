@@ -15,7 +15,7 @@
   </div>
 <div class="form-group">
     <label class="control-label">Title: </label>
-    <input class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" type="type" name="title" value="{{ old('title', $post->title) }}" placeholder="Enter your title">
+    <input class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" type="text" name="title" value="{{ old('title', $post->title) }}" placeholder="Enter your title">
     
     @if ($errors->has('title'))
         <span class="invalid-feedback" role="alert">
@@ -35,7 +35,7 @@
 </div>
 <div class="form-group">
     <label class="control-label">Source Link: </label>
-    <input class="form-control{{ $errors->has('source_link') ? ' is-invalid' : '' }}" type="type" name="source_link" value="{{ old('source_link', $post->source_link) }}" placeholder="Enter source link">
+    <input class="form-control{{ $errors->has('source_link') ? ' is-invalid' : '' }}" type="url" name="source_link" value="{{ old('source_link', $post->source_link) }}" placeholder="Enter source link">
     
     @if ($errors->has('source_link'))
         <span class="invalid-feedback" role="alert">

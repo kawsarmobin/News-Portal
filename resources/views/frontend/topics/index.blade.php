@@ -38,7 +38,7 @@
                         </table>
                     </div>
                     @else 
-                    <h4>Topics not yet...</h4>
+                    <h4>No topics yet...</h4>
                     @endif
                 </div>
             </div>

@@ -64,7 +64,7 @@
         </div>
         <!--If post not found-->
         @else
-        <h2>Posts not yet...</h2>
+        <h2>No posts yet...</h2>
         @endif
     </div>
 </div>
