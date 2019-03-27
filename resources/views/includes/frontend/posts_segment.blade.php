@@ -1,11 +1,4 @@
-@extends('layouts.frontend') 
-@section('content')
-<div class="col-lg-10 p-5">
-    <div class="my-4">
-        <div class="card text-center text-white bg-primary p-1 m-3">
-            <h3><b>Posts Archive</b></h3>
-        </div>
-        @if ($posts->count()) @foreach ($posts as $post)
+@foreach ($posts as $post)
         <section class="card p-3 m-3">
             <div class="row">
                 <!--Avatar-->
@@ -17,17 +10,19 @@
                     @endif
                 </div>
                 <!--Website url-->
-                <div class="col-sm-10" style="padding: 16px 0 0 25px;">
+                <div class="col-sm-10" style="padding: 16px 0 0 30px;">
                     <div class="col-sm-10">
                         @if ($post->user->website)
                         <a style="text-decoration: none; font-size: 18px;" href="{{ $post->user->website }}" target="_blank">{{ $post->user->website }}</a>                        
                         @else
-                        <span style="text-decoration: none; font-size: 18px;">{{ $post->user->name }}</span> @endif
+                        <span style="text-decoration: none; font-size: 18px;">{{ $post->user->name }}</span>
+                        @endif
                     </div>
                     <!--Website subtitle-->
                     <div class="col-sm-10">
                         @if ($post->user->sub_title)
-                        <span style="color: gray">{{ $post->user->sub_title }}</span> @endif
+                        <span style="color: gray">{{ $post->user->sub_title }}</span>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -56,18 +51,3 @@
             </div>
         </section>
         @endforeach
-        <!--Pagination-->
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                {{ $posts->links() }}
-            </div>
-        </div>
-        <!--If post not found-->
-        @else
-            <div class="card-body text-center">
-                <h2>No posts yet...</h2>
-            </div>
-        @endif
-    </div>
-</div>
-@endsection

@@ -13,22 +13,50 @@ class HomeController extends Controller
     {
         if (auth()->check()) {
             $user_id = auth()->user()->id;
-            $topics = Topic::leftJoin('topic_user','topics.id','=','topic_user.topic_id')
-                        ->where('topics.user_id', $user_id)
-                        ->orWhere('topic_user.user_id', $user_id)
-                        ->orderBy('topics.id')->pluck('topics.id')->toArray();
+            $topic_ids = Topic::leftJoin('topic_user', 'topics.id', '=', 'topic_user.topic_id')
+                ->where('topics.user_id', $user_id)
+                ->orWhere('topic_user.user_id', $user_id)
+                ->orderBy('topics.id')->pluck('topics.id')->toArray();
 
-            $posts = Post::whereIn('topic_id', $topics)->where('created_at', '>=', Carbon::now()->subDay())->latest()->with(['topic', 'user'])->paginate(100);
+            $topics = Topic::select(['topics.id', 'topics.name', 'topics.slug'])
+                ->leftJoin('topic_user', 'topics.id', '=', 'topic_user.topic_id')
+                ->where('topics.user_id', $user_id)
+                ->orWhere('topic_user.user_id', $user_id)
+                ->orderBy('topics.name')->get();
+
+            $posts = Post::whereIn('topic_id', $topic_ids)->where('created_at', '>=', Carbon::now()->subDay())->latest()->with(['topic', 'user'])->paginate(100);
         } else {
             $posts = Post::where('created_at', '>=', Carbon::now()->subDay())->latest()->with(['topic', 'user'])->paginate(100);
+            $topics = Topic::orderBy('name')->get();
         }
         return view('welcome')
-                ->with('posts', $posts);
+            ->with('posts', $posts)
+            ->with('topics', $topics);
     }
 
     public function singlePage($token)
     {
         return view('frontend.single_page')
                 ->with('post', Post::where('token', $token)->first());
+    }
+
+    public function postsByTopic($slug)
+    {
+        if (auth()->check()) {
+            $user_id = auth()->user()->id;
+            $topics = Topic::select(['topics.id', 'topics.name', 'topics.slug'])
+                ->leftJoin('topic_user', 'topics.id', '=', 'topic_user.topic_id')
+                ->where('topics.user_id', $user_id)
+                ->orWhere('topic_user.user_id', $user_id)
+                ->orderBy('topics.name')->get();
+        } else {
+            $topics = Topic::orderBy('name')->get();
+        }
+
+        $topic = Topic::where('slug', $slug)->first();
+        $posts = Post::where('topic_id', $topic->id)->latest()->paginate(50);
+        return view('frontend.posts_by_topic')
+                ->with('posts', $posts)
+                ->with('topics', $topics);
     }
 }

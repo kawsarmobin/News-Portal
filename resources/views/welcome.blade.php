@@ -1,17 +1,10 @@
 @extends('layouts.frontend') 
 @section('content')
+<!--Left-->
 <div class="col-3" style="margin-top: 59px; position: static">
-    <div class="card">
-        <h5 class="card-header">Topics</h5>
-        <div class="card-body">
-            <ul style="list-style-image: url({{ asset('img/star.png') }});">
-                <li style="">2020</li>
-                <li>2019</li>
-                <li>2018</li>
-            </ul>
-        </div>
-    </div>
+    @include('includes.frontend.left_side')
 </div>
+<!--Center-->
 <div class="col-7" style="font-family: lato">
     <div class="my-4">
         <!--Recent post-->
@@ -24,59 +17,11 @@
                 <a class="float-right" style=" text-decoration: none; color: gray" href="{{ route('own-posts.create') }}">Popular</a>
             </div>
         </div>
-        @if ($posts->count()) @foreach ($posts as $post)
-        <section class="card p-3 m-3">
-            <div class="row">
-                <!--Avatar-->
-                <div class="col-sm-1" style="padding: 0 0 0 30px">
-                    @if ($post->user->avatar)
-                    <img style="width: 60px; border-radius: 35px; margin-top: 15px;" src="{{ $post->user->avatar_thumbnail }}" alt="AVATAR">                    
-                    @else
-                    <img style="width: 60px; border-radius: 35px; margin-top: 15px;" src="{{ asset('img/avatar.gif') }}" alt="">                    
-                    @endif
-                </div>
-                <!--Website url-->
-                <div class="col-sm-10" style="padding: 16px 0 0 30px;">
-                    <div class="col-sm-10">
-                        @if ($post->user->website)
-                        <a style="text-decoration: none; font-size: 18px;" href="{{ $post->user->website }}" target="_blank">{{ $post->user->website }}</a>                        
-                        @else
-                        <span style="text-decoration: none; font-size: 18px;">{{ $post->user->name }}</span>
-                        @endif
-                    </div>
-                    <!--Website subtitle-->
-                    <div class="col-sm-10">
-                        @if ($post->user->sub_title)
-                        <span style="color: gray">{{ $post->user->sub_title }}</span>
-                        @endif
-                    </div>
-                </div>
-            </div>
-            <!--Main content-->
-            <div class="card p-3 m-3">
-                <div>
-                    <h2><b><a style="text-decoration: none;" href="{{ route('post.single.page', $post->token) }}">{{ $post->title }}</a></b></h2>
-                </div>
-                <div>
-                    <p style="font-size: 15px; margin: 0"><b>{{ $post->topic->name }}</b> &nbsp; <span style="color: gray">{{ $post->created_at->diffForHumans() }}</span></p>
-                </div>
-                <div style="padding-left: 20px">
-                    <div>
-                        <p><b>{!! $post->summery !!}</b></p>
-                    </div>
-                    @if ($post->source_link)
-                    <div>
-                        <p style="margin-top: -10px;">Source: <a style="text-decoration: none;" href="{{ $post->source_link }}" target="_blank">{{ str_limit($post->source_link, 30) }}</a></p>
-                    </div>
-                    @endif
-                </div>
-            </div>
-            <!--Vote option-->
-            <div style="padding: 0 0 0 18px">
-                <a class="btn btn-sm btn-danger" href="">Vote <span class="badge badge-light">4</span></a>
-            </div>
-        </section>
-        @endforeach
+
+        @if ($posts->count()) 
+        <!--Include posts segment-->
+        @include('includes.frontend.posts_segment')
+
         <!--Pagination-->
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -85,20 +30,16 @@
         </div>
         <!--If post not found-->
         @else
-        <h2>Posts not yet...</h2>
+        <div class="card bg-light text-dark text-center" style="margin-top: 18px;">
+            <div class="card-body">
+                <h2>No posts yet...</h2>
+            </div>
+        </div>
         @endif
     </div>
 </div>
+<!--Right-->
 <div class="col-sm-2" style="margin-top: 59px; ">
-    <div class="card">
-        <h5 class="card-header">Archives</h5>
-        <div class="card-body">
-            <ul style="list-style-image: url({{ asset('img/file.png') }});"> 
-                <li>2020</li>
-                <li>2019</li>
-                <li>2018</li>
-            </ul>
-        </div>
-    </div>
+    @include('includes.frontend.right_side')
 </div>
 @endsection
