@@ -9,6 +9,10 @@
                             <hr style="margin-left: -41px">
                         @endif
                     @endforeach
+                @else 
+                <div style="margin-left: -12px;">
+                    <h5>No topics yet...</h5>
+                </div>
                 @endif
             </ul>
         </div>
