@@ -30,6 +30,8 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
     Route::post('/admin/profile/change-password', 'Admin\Profile\ProfilesController@update_password')->name('admin.profile.update-password');
     /* Topic delete topic */
     Route::resource('/admin/topics', 'Admin\Topic\TopicsController',['as' => 'admin'])->only(['index', 'destroy']);
+    /* Post delete permission */
+    Route::resource('admin/posts', 'Admin\Post\PostsController',['as' => 'admin'])->only(['index', 'show','destroy']);
 });
 
 Route::group(['middleware' => ['auth']], function () {
