@@ -1,9 +1,8 @@
 <!-- Scripts -->
-<script src="{{ asset('js/app.js') }}"></script>
+{{-- <script src="{{ asset('js/app.js') }}"></script> --}}
 
 <!-- Jquery Core Js -->
-{{--
-<script src="{{ asset('master/plugins/jquery/jquery.min.js') }}"></script> --}}
+<script src="{{ asset('master/plugins/jquery/jquery.min.js') }}"></script>
 
 <!-- Bootstrap Core Js -->
 <script src="{{ asset('master/plugins/bootstrap/js/bootstrap.js') }}"></script>
@@ -70,5 +69,18 @@
 
 </script>
 
+<!-- Jquery DataTable Plugin Js -->
+<script src="{{ asset('master/plugins/jquery-datatable/jquery.dataTables.js') }}"></script>
+<script src="{{ asset('master/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js') }}"></script>
+
+<!-- Custom Js -->
+{{-- <script src="{{ asset('master/js/pages/tables/jquery-datatable.js') }}"></script> --}}
+
 <!-- Demo Js -->
 <script src="{{ asset('master/js/demo.js') }}"></script>
+
+<script>
+$('.dataTable').DataTable();
+
+$('#DataTables_Table_0_length').hide();
+</script>

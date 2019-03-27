@@ -28,6 +28,8 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
     // change password
     Route::get('/admin/profile/change-password', 'Admin\Profile\ProfilesController@change_password')->name('admin.profile.change-password');
     Route::post('/admin/profile/change-password', 'Admin\Profile\ProfilesController@update_password')->name('admin.profile.update-password');
+    /* Post delete permission */
+    Route::resource('admin/posts', 'Admin\Post\PostsController',['as' => 'admin'])->only(['index', 'show','destroy']);
 });
 
 Route::group(['middleware' => ['auth']], function () {

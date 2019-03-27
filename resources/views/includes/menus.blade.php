@@ -9,6 +9,12 @@
                 </a>
         </li>
         <li>
+            <a href="{{ route('admin.posts.index') }}">
+                <i class="material-icons">home</i>
+                <span>Posts</span>
+            </a>
+        </li>
+        <li>
             <a href="javascript:void(0);" class="menu-toggle">
                     <i class="material-icons">trending_down</i>
                     <span>Footer</span>
