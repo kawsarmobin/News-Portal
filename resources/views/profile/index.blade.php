@@ -10,7 +10,7 @@
                         <div class="row">
                             <div class="col-md-4 profile-view">
                                 @if ($profile->avatar)
-                                    <img src="{{ $profile->user_avatar }}" width="80%" alt="">
+                                    <img class="img-thumbnail" src="{{ $profile->user_avatar }}" width="80%" alt="">
                                 @else
                                     <img src="{{ asset('img/avatar.gif') }}" width="80%" alt="">
                                 @endif

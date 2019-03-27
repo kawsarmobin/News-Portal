@@ -34,6 +34,12 @@ class PostsController extends Controller
                         ->where('topics.user_id', $user_id)
                         ->orWhere('topic_user.user_id', $user_id)
                         ->orderBy('topics.name')->get();
+
+        if ($topics->count() == 0) {
+            Session::flash('info', 'You must have some topics before attempting to create a post.');
+            return back();
+            }
+
         return view('frontend.own.posts.create')
                 ->with('topics', $topics)
                 ->with('post', new Post());

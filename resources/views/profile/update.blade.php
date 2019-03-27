@@ -1,4 +1,4 @@
-@extends('layouts.frontend')
+@extends('layouts.frontend') 
 @section('content')
 <div class="col-lg-10 p-5">
     <div class="my-4">
@@ -14,69 +14,62 @@
                                     @csrf
                                     <div class="form-group">
                                         <label for="name">Name *</label>
-                                        <input class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" 
-                                                type="text" 
-                                                name="name" 
-                                                value="{{ old('name',  $profile->name) }}"
-                                                placeholder="Enter Name">
-        
-                                        @if ($errors->has('name'))
-                                            <span class="invalid-feedback" role="alert">
+                                        <input class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" type="text" name="name" value="{{ old('name',  $profile->name) }}"
+                                            placeholder="Enter Name"> @if ($errors->has('name'))
+                                        <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $errors->first('name') }}</strong>
-                                            </span>
-                                        @endif
+                                            </span> @endif
                                     </div>
                                     <div class="form-group">
                                         <label for="email">Email *</label>
-                                        <input class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" 
-                                                type="email" 
-                                                name="email" 
-                                                value="{{ old('email',  $profile->email) }}"
-                                                placeholder="Enter email">
-        
-                                        @if ($errors->has('email'))
-                                            <span class="invalid-feedback" role="alert">
+                                        <input class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" type="email" name="email" value="{{ old('email',  $profile->email) }}"
+                                            placeholder="Enter email"> @if ($errors->has('email'))
+                                        <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $errors->first('email') }}</strong>
-                                            </span>
-                                        @endif
+                                            </span> @endif
                                     </div>
                                     <div class="form-group">
                                         <label for="website">Website</label>
-                                        <input class="form-control {{ $errors->has('website') ? ' is-invalid' : '' }}" 
-                                                type="url" 
-                                                name="website" 
-                                                value="{{ old('website',  $profile->website) }}"
-                                                placeholder="Enter website">
-        
-                                        @if ($errors->has('website'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('website') }}</strong>
-                                            </span>
-                                        @endif
+                                        <input class="form-control {{ $errors->has('website') ? ' is-invalid' : '' }}" type="url" name="website" value="{{ old('website',  $profile->website) }}"
+                                            placeholder="Enter website"> 
+                                            @if ($errors->has('website'))
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $errors->first('website') }}</strong>
+                                                </span> 
+                                            @endif
                                     </div>
                                     <div class="form-group">
-                                            <label for="sub_title">Sub Title</label>
-                                            <input class="form-control {{ $errors->has('sub_title') ? ' is-invalid' : '' }}" 
-                                                    type="text" 
-                                                    name="sub_title" 
-                                                    value="{{ old('sub_title',  $profile->sub_title) }}"
-                                                    placeholder="Enter Sub Title">
-            
+                                        <label for="sub_title">Sub Title</label>
+                                        <input class="form-control {{ $errors->has('sub_title') ? ' is-invalid' : '' }}" type="text" name="sub_title" value="{{ old('sub_title',  $profile->sub_title) }}"
+                                            placeholder="Enter Sub Title"> 
                                             @if ($errors->has('sub_title'))
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $errors->first('sub_title') }}</strong>
-                                                </span>
+                                                </span> 
                                             @endif
+                                    </div>
+                                    {{-- <div class="form-group">
+                                        <label for="avatar">Old Avatar</label><br>
+                                        <img class="img-thumbnail" src="{{ $profile->user_avatar }}" width="15%" alt="">
+                                        <div class="caption">
+                                            <p>Lorem ipsum...</p>
                                         </div>
+                                    </div> --}}
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="img-thumbnail" width="80%">
+                                                    <img src="{{ $profile->user_avatar }}" width="100%" alt="">
+                                                    <div class="caption text-center"><span class="badge badge-success">Old Avatar</span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <label for="avatar">Avatar</label><br>
-                                        <input class="{{ $errors->has('avatar') ? ' is-invalid' : '' }}" type="file" name="avatar">
-        
-                                        @if ($errors->has('avatar'))
-                                            {{-- <span class="invalid-feedback" role="alert"> --}}
-                                                <br>
-                                                <strong style="font-size: 80%" class="text-danger">{{ $errors->first('avatar') }}</strong>
-                                            {{-- </span> --}}
+                                        <input class="{{ $errors->has('avatar') ? ' is-invalid' : '' }}" type="file" name="avatar">                                        
+                                        @if ($errors->has('avatar')) <br>
+                                            <strong style="font-size: 80%" class="text-danger">{{ $errors->first('avatar') }}</strong>
                                         @endif
                                     </div>
                                     <div class="form-group">

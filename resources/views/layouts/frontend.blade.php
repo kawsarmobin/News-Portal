@@ -135,7 +135,7 @@
             "onclick": null,
             "showDuration": "300",
             "hideDuration": "1000",
-            "timeOut": "4000",
+            "timeOut": "5000",
             "extendedTimeOut": "1000",
             "showEasing": "swing",
             "hideEasing": "linear",
@@ -145,6 +145,10 @@
 
         @if (Session::has('success'))
             toastr.success("{{ Session::get('success') }}")
+        @endif
+
+        @if (Session::has('info'))
+            toastr.info("{{ Session::get('info') }}")
         @endif
     </script>
 </body>
