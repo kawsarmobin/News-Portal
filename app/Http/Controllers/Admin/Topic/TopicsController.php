@@ -14,9 +14,9 @@ class TopicsController extends Controller
                 ->with('topics', Topic::orderBy('name')->get());
     }
 
-    public function destroy($id)
+    public function destroy(Topic $topic)
     {
-        if (Topic::delete()) {
+        if ($topic->delete()) {
             Session::flash('success', 'Topic has been deleted.');
         }
         return back();

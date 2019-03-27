@@ -9,7 +9,7 @@
                 </h2>
             </div>
             <div class="body">
-                <table class="table table-borderless">
+                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -27,7 +27,10 @@
                             <td>{{ $topic->user->name }}</td>
                             <td>{{ date('F d, Y', strtotime($topic->created_at)) }}</td>
                             <td>
-                                <a href="{{ route('admin.topics.destroy', $topic->id) }}" class="btn btn-danger waves-effect">Delete</a>
+                                @include('includes._admin_confirm_delete',[
+                                    'action' => route('admin.topics.destroy', $topic->id),
+                                    'id' => $topic->id
+                                ])
                             </td>
                         </tr>
                         @endforeach
