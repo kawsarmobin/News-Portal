@@ -1,15 +1,27 @@
 @extends('layouts.frontend') 
 @section('content')
-<div class="col-sm-8" style="font-family: lato">
+<div class="col-3" style="margin-top: 59px; position: static">
+    <div class="card">
+        <h5 class="card-header">Topics</h5>
+        <div class="card-body">
+            <ul style="list-style-image: url({{ asset('img/star.png') }});">
+                <li style="">2020</li>
+                <li>2019</li>
+                <li>2018</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="col-7" style="font-family: lato">
     <div class="my-4">
         <!--Recent post-->
         <div class="row" style="margin: 0 15px -15px 15px; padding-bottom: -5px;">
             <div class="col-sm-6">
-                <h2><b>Today</b></h2>
+                <h4 class="padding: 0; margin:0; vertical-align: middle"><b>Today</b></h4>
             </div>
             <div class="col-sm-6">
-                <a class="float-right" style="margin-top: 8px; margin-left: 10px; text-decoration: none; color: gray;" href="{{ route('own-posts.create') }}">New</a>
-                <a class="float-right" style="margin-top: 8px; text-decoration: none; color: gray" href="{{ route('own-posts.create') }}">Popular</a>
+                <a class="float-right" style=" margin-left: 10px; text-decoration: none; color: gray;" href="{{ route('own-posts.create') }}">New</a>
+                <a class="float-right" style=" text-decoration: none; color: gray" href="{{ route('own-posts.create') }}">Popular</a>
             </div>
         </div>
         @if ($posts->count()) @foreach ($posts as $post)
@@ -24,7 +36,7 @@
                     @endif
                 </div>
                 <!--Website url-->
-                <div class="col-sm-10" style="padding: 16px 0 0 25px;">
+                <div class="col-sm-10" style="padding: 16px 0 0 30px;">
                     <div class="col-sm-10">
                         @if ($post->user->website)
                         <a style="text-decoration: none; font-size: 18px;" href="{{ $post->user->website }}" target="_blank">{{ $post->user->website }}</a>                        
@@ -75,6 +87,18 @@
         @else
         <h2>Posts not yet...</h2>
         @endif
+    </div>
+</div>
+<div class="col-sm-2" style="margin-top: 59px; ">
+    <div class="card">
+        <h5 class="card-header">Archives</h5>
+        <div class="card-body">
+            <ul style="list-style-image: url({{ asset('img/file.png') }});"> 
+                <li>2020</li>
+                <li>2019</li>
+                <li>2018</li>
+            </ul>
+        </div>
     </div>
 </div>
 @endsection
