@@ -4,9 +4,15 @@
         <li class="header">MAIN NAVIGATION</li>
         <li class="active">
             <a href="{{ route('home') }}">
-                    <i class="material-icons">home</i>
-                    <span>Home</span>
-                </a>
+                <i class="material-icons">home</i>
+                <span>Home</span>
+            </a>
+        </li>
+        <li>
+            <a href="{{ route('admin.topics.index') }}">
+                <i class="material-icons">text_fields</i>
+                <span>Topics</span>
+            </a>
         </li>
         <li>
             <a href="javascript:void(0);" class="menu-toggle">
