@@ -1,14 +1,12 @@
 @extends('layouts.frontend') 
 @section('content')
 <!--Left-->
-<div class="col-3" style="margin-top: 59px; position: static">
     @include('includes.frontend.left_side')
-</div>
 <!--Center-->
-<div class="col-7" style="font-family: lato">
+<div class="col-7 pl-0" style="font-family: lato">
     <div class="my-4">
         <!--Recent post-->
-        <div class="row" style="margin: 0 15px -15px 15px; padding-bottom: -5px;">
+        <div class="row" style="margin: 0 15px -14px 15px; padding-bottom: -5px;">
             <div class="col-sm-6">
                 <h4 class="padding: 0; margin:0; vertical-align: middle"><b>Today</b></h4>
             </div>
@@ -39,7 +37,5 @@
     </div>
 </div>
 <!--Right-->
-<div class="col-sm-2" style="margin-top: 59px; ">
     @include('includes.frontend.right_side')
-</div>
 @endsection

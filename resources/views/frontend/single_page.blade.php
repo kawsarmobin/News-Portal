@@ -1,6 +1,9 @@
 @extends('layouts.frontend') 
 @section('content')
-<div class="col-lg-10 p-5">
+<!--Left-->
+    @include('includes.frontend.left_side')
+<!--Center-->
+<div class="col-lg-7 pl-0" style="padding-top: 35px">
     <div class="my-4">
         <section class="card p-3 m-3">
             <div class="row">
@@ -53,4 +56,6 @@
         </section>
     </div>
 </div>
+<!--Right-->
+    @include('includes.frontend.right_side')
 @endsection

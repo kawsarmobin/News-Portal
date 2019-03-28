@@ -62,3 +62,5 @@ Route::get('/post/{token}', 'Frontend\HomeController@singlePage')->name('post.si
 Route::get('/all-topic', 'Frontend\TopicFollowsController@index')->name('topic.follows.index');
 /* Topic wise posts */
 Route::get('/topic/{slug}/posts', 'Frontend\HomeController@postsByTopic')->name('topic.posts');
+/* Home archive */
+Route::get('/archive', 'Frontend\HomeController@archiveData')->name('home.archive');

@@ -1,11 +1,9 @@
 @extends('layouts.frontend') 
 @section('content')
 <!--Left-->
-<div class="col-3 my-4">
     @include('includes.frontend.left_side')
-</div>
 <!--Center-->
-<div class="col-7" style="font-family: lato">
+<div class="col-7 pl-0" style="font-family: lato; padding-top: 35px;">
     <div class="my-4">
         @if ($posts->count())
         <!--Include posts segment-->
@@ -27,7 +25,5 @@
     </div>
 </div>
 <!--Right-->
-<div class="col-sm-2 my-4">
     @include('includes.frontend.right_side')
-</div>
 @endsection
