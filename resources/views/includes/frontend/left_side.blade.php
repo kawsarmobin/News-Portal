@@ -1,7 +1,7 @@
 <div class="col-md-3 col-sm-12 mt-4 navbar-expand-md navbar-light">
     <div class="custom-topic-header">
         <div class="d-flex">
-            <div class="p-2">
+            <div class="">
                 <p>
                     @if (auth()->check())
                     My
@@ -22,7 +22,7 @@
         <div class="topic-item">
             @if ($num_of_topics = $topics->count())
                 <div class="collapse navbar-collapse" id="topicNav">
-                    <ul class="main-nav topic-nav-ul">
+                    <ul class="topic-nav-ul">
                         @foreach ($topics as $topic)
                             <li class="list-unstyled">
                                 <a href="{{ route('topic.posts', ['slug' => $topic->slug]) }}">

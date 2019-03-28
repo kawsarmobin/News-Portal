@@ -51,7 +51,7 @@
     <hr>
     <!--Vote option-->
     <div style="padding: 0 0 0 18px">
-        <a class="btn btn-sm btn-danger" href="">Vote <span class="badge badge-light">4</span></a>
+        <a class="btn btn-sm btn-danger" href=""><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> &nbsp; Vote 	&nbsp;<span class="badge badge-light"> 4</span></a>
     </div>
 </section>
 @endforeach
