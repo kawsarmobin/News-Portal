@@ -1,6 +1,9 @@
 @extends('layouts.frontend') 
 @section('content')
-<div class="col-lg-10 p-5">
+<!--Left-->
+    @include('includes.frontend.left_side')
+<!--Center-->
+<div class="col-lg-7 pl-0" style="padding-top: 35px">
     <div class="my-4">
         <div class="card text-center text-white bg-primary p-1 m-3">
             <h3><b>Posts Archive</b></h3>
@@ -11,17 +14,14 @@
                 <!--Avatar-->
                 <div class="col-sm-1" style="padding: 0 0 0 30px">
                     @if ($post->user->avatar)
-                    <img style="width: 60px; border-radius: 35px; margin-top: 15px;" src="{{ $post->user->avatar_thumbnail }}" alt="AVATAR">                    
-                    @else
-                    <img style="width: 60px; border-radius: 35px; margin-top: 15px;" src="{{ asset('img/avatar.gif') }}" alt="">                    
-                    @endif
+                    <img style="width: 60px; border-radius: 35px; margin-top: 15px;" src="{{ $post->user->avatar_thumbnail }}" alt="AVATAR">                    @else
+                    <img style="width: 60px; border-radius: 35px; margin-top: 15px;" src="{{ asset('img/avatar.gif') }}" alt="">                    @endif
                 </div>
                 <!--Website url-->
-                <div class="col-sm-10" style="padding: 16px 0 0 25px;">
+                <div class="col-sm-10" style="padding: 16px 0 0 30px;">
                     <div class="col-sm-10">
                         @if ($post->user->website)
-                        <a style="text-decoration: none; font-size: 18px;" href="{{ $post->user->website }}" target="_blank">{{ $post->user->website }}</a>                        
-                        @else
+                        <a style="text-decoration: none; font-size: 18px;" href="{{ $post->user->website }}" target="_blank">{{ $post->user->website }}</a>                        @else
                         <span style="text-decoration: none; font-size: 18px;">{{ $post->user->name }}</span> @endif
                     </div>
                     <!--Website subtitle-->
@@ -64,10 +64,12 @@
         </div>
         <!--If post not found-->
         @else
-            <div class="card-body text-center">
-                <h2>No posts yet...</h2>
-            </div>
+        <div class="card-body text-center">
+            <h2>No posts yet...</h2>
+        </div>
         @endif
     </div>
 </div>
+<!--Right-->
+    @include('includes.frontend.right_side')
 @endsection

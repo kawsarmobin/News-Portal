@@ -16,9 +16,9 @@
             </div>
         </div>
 
-        @if ($posts->count()) 
+        @if ($posts->count())
         <!--Include posts segment-->
-        @include('includes.frontend.posts_segment')
+    @include('includes.frontend.posts_segment')
 
         <!--Pagination-->
         <div class="row justify-content-center">
