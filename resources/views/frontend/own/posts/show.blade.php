@@ -37,13 +37,17 @@
                         <tr>
                             <td>Source Link</td>
                             <td>:</td>
-                            <td>{{ str_limit($post->source_link, 30) }}</td>
+                            <td><a style="border: 1px solid gray; border-radius: 3px; padding: 3px;" href="{{ $post->source_link }}" target="_blank">{{ str_limit($post->source_link, 70) }}</a></td>
                         </tr>
                         @endif
                         <tr>
                             <td style="width: 95px; padding-top: 12px;">Post Link</td>
                             <td style="width: 1px; padding-top: 12px;">:</td>
-                            <td><input class="form-control" type="text" value="{{ route('own-posts.show', $post->token) }}" readonly></td>
+                            <td>
+                                <input class="form-control" id="copy{{ $post->id }}" type="text" value="{{ route('post.single.page', $post->token) }}" readonly>
+                                <!-- The button used to copy the text -->
+                                <button class="btn btn-sm btn-outline-secondary mt-1" onclick="CopyToClipboard('copy{{ $post->id }}')" style="margin-bottom: 15px;">Copy</button>
+                            </td>
                         </tr>
                     </table>
                 </div>

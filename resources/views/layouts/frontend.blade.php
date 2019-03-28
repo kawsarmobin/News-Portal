@@ -129,7 +129,7 @@
             "closeButton": true,
             "debug": false,
             "newestOnTop": false,
-            "progressBar": true,
+            "progressBar": false,
             "positionClass": "toast-bottom-right",
             "preventDuplicates": true,
             "onclick": null,
@@ -151,6 +151,29 @@
             toastr.info("{{ Session::get('info') }}")
         @endif
     </script>
+    <script type="text/javascript">
+        function CopyToClipboard(containerid) {
+        if (document.selection) {
+        var range = document.body.createTextRange();
+        range.moveToElementText(document.getElementById(containerid));
+        range.select().createTextRange();
+        document.execCommand("copy");
+        toastr.info("Copied");
+        setTimeout(() => {
+            location.reload();
+        }, 1000);
+    
+        } else if (window.getSelection) {
+        var range = document.createRange();
+         range.selectNode(document.getElementById(containerid));
+         window.getSelection().addRange(range);
+         document.execCommand("copy");
+         toastr.info("Copied");
+         setTimeout(() => {
+            location.reload();
+        }, 1000);
+        }}
+        </script>
 </body>
 
 </html>
