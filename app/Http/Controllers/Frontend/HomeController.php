@@ -63,7 +63,7 @@ class HomeController extends Controller
                                             DB::raw('MONTH(created_at) as month'),
                                             DB::raw('MONTHNAME(created_at) as month_name'),
                                             DB::raw('count(*) as num_of_posts'))
-                            ->groupBy('year','month','month_name')->whereRaw('YEAR(created_at) = '.date('Y'))->orderBy('month', 'desc')->get();
+                            ->groupBy('year','month','month_name')->whereRaw('YEAR(created_at) = '.date('Y'))->orderBy('month', 'desc')->where('created_at', '<=', Carbon::now()->subDay())->get();
 
         $archive_years = Post::select(DB::raw('YEAR(created_at) as year'),
                             DB::raw('count(*) as num_of_posts'))
@@ -100,7 +100,7 @@ class HomeController extends Controller
         }
         
         $archives = $this->archive();
-        $posts =  Post::whereRaw($whereClause)->paginate(100);
+        $posts =  Post::whereRaw($whereClause)->where('created_at', '<=', Carbon::now()->subDay())->paginate(100);
         return view('frontend.posts_by_topic')
                 ->with('posts', $posts)
                 ->with('topics', $this->topics())
