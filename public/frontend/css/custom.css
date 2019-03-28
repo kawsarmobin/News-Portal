@@ -85,10 +85,10 @@ h4 {
     background: #fff;
 }
 .custom-topic-header p{
-    padding: 10px 10px 10px 20px;
+    padding: 10px 10px 0 20px;
     font-size: 18px;
     font-weight: 700;
-    margin: 0 0 10px 0;
+    margin: 0 0 9px 0;
 }
 .main-heading{
     background: #fff;
@@ -116,6 +116,9 @@ h2.post-title a{
 h2.post-title:hover a{
     color: #B92B27 !important;
 }
+.topics-card{
+    margin-top: 10px;
+}
 .topics-card hr{
     margin-top: 5px;
 }
@@ -134,9 +137,12 @@ a:hover{
     cursor: pointer;
 }
 @media only screen and (max-width: 712px) {
-.avater .avater-name{
-    margin-left: 30px;
-}
+    .avater .avater-name{
+        margin-left: 30px;
+    }
+    .profile{
+        margin-left: 16px; 
+    }
 }
 .main-nav li a{
     color: #212529 !important;
@@ -151,4 +157,13 @@ a:hover{
 .main-nav .profile-item{
     color: #212529 !important;
     font-size: 16px;
+}
+
+.topic-nav-ul{
+    width: 100%;
+    padding-left:0;
+}
+
+.topic-toggle-button{
+    margin-top: 5px;
 }

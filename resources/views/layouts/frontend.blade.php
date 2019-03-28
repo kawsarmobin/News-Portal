@@ -27,7 +27,7 @@
 <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg fixed-top color-main">
+    <nav class="navbar navbar-expand-lg fixed-top color-main navbar-light">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">Summify</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
