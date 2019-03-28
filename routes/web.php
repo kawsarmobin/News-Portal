@@ -32,6 +32,10 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
     Route::resource('/admin/topics', 'Admin\Topic\TopicsController',['as' => 'admin'])->only(['index', 'destroy']);
     /* Post delete permission */
     Route::resource('admin/posts', 'Admin\Post\PostsController',['as' => 'admin'])->only(['index', 'show','destroy']);
+    /* User permission */
+    Route::resource('admin/users', 'Admin\User\UsersController',['as' => 'admin'])->only(['index','destroy']);
+    Route::get('admin/users/{user}/status', 'Admin\User\UsersController@status')->name('admin.users.status');
+    Route::get('admin/users/{user}/role', 'Admin\User\UsersController@userRole')->name('admin.users.role');
 });
 
 Route::group(['middleware' => ['auth']], function () {

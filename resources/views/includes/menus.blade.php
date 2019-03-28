@@ -2,86 +2,50 @@
 <div class="menu">
     <ul class="list">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="active">
+        <li class="{{ Request::is('dashboard')?'active':'' }}">
             <a href="{{ route('home') }}">
                 <i class="material-icons">home</i>
                 <span>Home</span>
             </a>
         </li>
-        <li>
+        <li class="{{ Request::is('admin/topics')?'active':'' }}">
             <a href="{{ route('admin.topics.index') }}">
                 <i class="material-icons">text_fields</i>
                 <span>Topics</span>
             </a>
         </li>
-        <li>
+        <li class="{{ Request::is('admin/posts*')?'active':'' }}">
             <a href="{{ route('admin.posts.index') }}">
-                <i class="material-icons">home</i>
+                <i class="material-icons">layers</i>
                 <span>Posts</span>
             </a>
         </li>
-        <li>
+        <li class="{{ Request::is('admin/users')?'active':'' }}">
+            <a href="{{ route('admin.users.index') }}">
+                <i class="material-icons">supervised_user_circle</i>
+                <span>Users</span>
+            </a>
+        </li>
+        <li class="{{ Request::is('*/create')?'active':'' }}">
             <a href="javascript:void(0);" class="menu-toggle">
                     <i class="material-icons">trending_down</i>
                     <span>Footer</span>
                 </a>
             <ul class="ml-menu">
-                <li>
+                <li class="{{ Request::is('about/create')?'active':'' }}">
                     <a href="{{ route('about.create') }}">
                         <span>About</span>
                     </a>
                 </li>
-                <li>
+                <li class="{{ Request::is('terms/create')?'active':'' }}">
                     <a href="{{ route('terms.create') }}">
                         <span>Terms</span>
                     </a>
                 </li>
-                <li>
+                <li class="{{ Request::is('privacy/create')?'active':'' }}">
                     <a href="{{ route('privacy.create') }}">
                         <span>Privacy</span>
                     </a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="javascript:void(0);" class="menu-toggle">
-                    <i class="material-icons">trending_down</i>
-                    <span>Multi Level Menu</span>
-                </a>
-            <ul class="ml-menu">
-                <li>
-                    <a href="javascript:void(0);">
-                            <span>Menu Item</span>
-                        </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0);">
-                            <span>Menu Item - 2</span>
-                        </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0);" class="menu-toggle">
-                            <span>Level - 2</span>
-                        </a>
-                    <ul class="ml-menu">
-                        <li>
-                            <a href="javascript:void(0);">
-                                    <span>Menu Item</span>
-                                </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);" class="menu-toggle">
-                                    <span>Level - 3</span>
-                                </a>
-                            <ul class="ml-menu">
-                                <li>
-                                    <a href="javascript:void(0);">
-                                            <span>Level - 4</span>
-                                        </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
                 </li>
             </ul>
         </li>

@@ -21,7 +21,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','avatar','website','sub_title'
+        'name', 'email', 'password','avatar','website','sub_title','is_active','is_admin'
     ];
 
     /**
@@ -61,5 +61,15 @@ class User extends Authenticatable
     public function getAvatarThumbnailAttribute()
     {
         return asset(self::THUMBNAIL_PATH.'/'.$this->avatar);
+    }
+
+    public function getStatusAttribute()
+    {
+        return $this->is_active?'Active':'Deactive';
+    }
+
+    public function getUserRoleAttribute()
+    {
+        return $this->is_admin?'Admin':'Regular User';
     }
 }

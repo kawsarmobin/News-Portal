@@ -75,13 +75,7 @@
 <script src="{{ asset('master/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js') }}"></script>
 
 <!-- Custom Js -->
-{{-- <script src="{{ asset('master/js/pages/tables/jquery-datatable.js') }}"></script> --}}
+<script src="{{ asset('master/js/pages/tables/jquery-datatable.js') }}"></script>
 
 <!-- Demo Js -->
 <script src="{{ asset('master/js/demo.js') }}"></script>
-
-<script>
-$('.dataTable').DataTable();
-
-$('#DataTables_Table_0_length').hide();
-</script>
