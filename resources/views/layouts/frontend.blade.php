@@ -35,7 +35,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav main-nav ml-auto">
                     <li class="nav-item active">
                         <a class="nav-link" href="{{ url('/') }}">
                             <i class="fa fa-home" aria-hidden="true"></i> Home 
@@ -61,20 +61,20 @@
                     </li>
                     @if (auth()->check())
                         <div class="btn-group">
-                            <a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link profile" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 @if (auth()->user()->avatar)
-                                    <img width="30px" class="rounded-circle" src="{{ auth()->user()->avatar_thumbnail }}" width="80%" alt="">
+                                    <img width="25px" class="rounded-circle" src="{{ auth()->user()->avatar_thumbnail }}" width="80%" alt="">
                                 @else
-                                    <img width="30px" class="rounded-circle" src="{{ asset('img/avatar.gif') }}" width="80%" alt="">
+                                    <img width="25px" class="rounded-circle" src="{{ asset('img/avatar.gif') }}" width="80%" alt="">
                                 @endif
                                 Profile
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="{{ route('own-posts.index') }}">My Posts</a>
-                                <a class="dropdown-item" href="{{ route('own-posts.post_link') }}">My Posts Link</a>
-                                <a class="dropdown-item" href="{{ route('profile.index') }}">My Information</a>
-                                <a class="dropdown-item" href="{{ route('topics.index') }}">My Topics</a>
-                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                <a class="dropdown-item profile-item" href="{{ route('own-posts.index') }}">My Posts</a>
+                                <a class="dropdown-item profile-item" href="{{ route('own-posts.post_link') }}">My Posts Link</a>
+                                <a class="dropdown-item profile-item" href="{{ route('profile.index') }}">My Information</a>
+                                <a class="dropdown-item profile-item" href="{{ route('topics.index') }}">My Topics</a>
+                                <a class="dropdown-item profile-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
@@ -87,7 +87,7 @@
                     </div>
                     @else
                     <div class="btn-group">
-                        <a class="nav-link" href="{{ route('login') }}"> <i class="fa fa-sign-in text-gray"></i>  Sign In</a>
+                        <a class="profile nav-link" href="{{ route('login') }}"> <i class="fa fa-sign-in text-gray"></i>  Sign In</a>
                     </div>
                     @endif
                 </ul>

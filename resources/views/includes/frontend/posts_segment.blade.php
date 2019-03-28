@@ -14,9 +14,9 @@
                 <div class="mt-4 avater-name">
                     <!--Website name / User name-->
                     @if ($post->user->website)
-                    <a style="text-decoration: none;" href="{{ $post->user->website }}" target="_blank">{{ $post->user->website }}</a>                    
+                    <a href="{{ $post->user->website }}" target="_blank">{{ $post->user->website }}</a>                    
                     @else
-                    <span style="text-decoration: none;">{{ $post->user->name }}</span> 
+                    <span>{{ $post->user->name }}</span> 
                     @endif
                     <p>
                         <!--Sybtitle-->
@@ -32,7 +32,7 @@
     <hr class="mt-0">
     <div class=" pr-3 pl-3 mr-3 ml-3">
         <div>
-            <h2><b><a class="text-dark" style="text-decoration: none;" href="{{ route('post.single.page', $post->token) }}">{{ $post->title }}</a></b></h2>
+            <h2 class="post-title"><b><a style="text-decoration: none; "  href="{{ route('post.single.page', $post->token) }}">{{ $post->title }}</a></b></h2>
         </div>
         <div>
             <p style="font-size: 15px; margin: 0"><b>{{ $post->topic->name }}</b> &nbsp; <span style="color: gray">{{ $post->created_at->diffForHumans() }}</span></p>
@@ -43,7 +43,7 @@
             </div>
             @if ($post->source_link)
             <div>
-                <p style="margin-top: -10px;"><b>Source:</b> <a style="text-decoration: none;" href="{{ $post->source_link }}" target="_blank">{{ str_limit($post->source_link, 30) }}</a></p>
+                <p style="margin-top: -10px;"><b>Source:</b> <a href="{{ $post->source_link }}" target="_blank">{{ str_limit($post->source_link, 30) }}</a></p>
             </div>
             @endif
         </div>

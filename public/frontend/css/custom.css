@@ -110,6 +110,12 @@ h4 {
     text-align: justify !important;
 
 }
+h2.post-title a{
+    color:#212529 !important;
+}
+h2.post-title:hover a{
+    color: #B92B27 !important;
+}
 .topics-card hr{
     margin-top: 5px;
 }
@@ -120,8 +126,29 @@ h4 {
     background: #fff;
     border-bottom: 1px dotted #ccc;
 }
+a {
+    text-decoration: none !important;
+    /* color: #B92B27 !important; */
+}
+a:hover{
+    cursor: pointer;
+}
 @media only screen and (max-width: 712px) {
 .avater .avater-name{
     margin-left: 30px;
 }
+}
+.main-nav li a{
+    color: #212529 !important;
+    font-size: 17px;
+    padding: 10px 15px !important;
+}
+.main-nav .profile{
+    color: #212529 !important;
+    font-size: 17px;
+    padding: 11px 20px 10px 0 !important;
+}
+.main-nav .profile-item{
+    color: #212529 !important;
+    font-size: 16px;
 }

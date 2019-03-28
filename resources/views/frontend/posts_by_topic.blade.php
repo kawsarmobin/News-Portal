@@ -3,8 +3,11 @@
 <!--Left-->
     @include('includes.frontend.left_side')
 <!--Center-->
-<div class="col-md-7 col-sm-12 main-tab" style="font-family: lato; padding-top: 35px;">
+<div class="col-md-7 col-sm-12 main-tab" style="font-family: lato;">
     <div class="my-4">
+        <div class="main-heading">
+            <div class="p-2 text-center"><h4>{{ isset($topic)?$topic->name:null }} {{ isset($date_data)?$date_data:null }}</h4></div>
+        </div>
         @if ($posts->count())
         <!--Include posts segment-->
             @include('includes.frontend.posts_segment')

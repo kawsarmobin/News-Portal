@@ -3,7 +3,7 @@
 <!--Left-->
     @include('includes.frontend.left_side')
 <!--Center-->
-<div class="col-md-7 col-sm-12 main-tab" style="padding-top: 35px; font-family: lato;">
+<div class="col-md-7 col-sm-12 main-tab" style="font-family: lato;">
     <div class="my-4">
         <section class="card pb-4 mb-3">
             <div class="row post-part">

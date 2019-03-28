@@ -3,10 +3,10 @@
 <!--Left-->
     @include('includes.frontend.left_side')
 <!--Center-->
-<div class="col-md-7 col-sm-12 main-tab" style="padding-top: 35px; font-family: lato">
+<div class="col-md-7 col-sm-12 main-tab" style="font-family: lato">
     <div class="my-4">
-        <div class="card text-center text-white bg-primary p-1 m-3">
-            <h3><b>Posts Archive</b></h3>
+        <div class="main-heading">
+            <div class="p-2 text-center"><h4>Posts Archive</h4></div>
         </div>
         @if ($posts->count()) @foreach ($posts as $post)
         <section class="card pb-4 mb-3">

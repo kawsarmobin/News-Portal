@@ -39,22 +39,27 @@ class HomeController extends Controller
         $topic = Topic::where('slug', $slug)->first();
         $posts = Post::where('topic_id', $topic->id)->latest()->paginate(50);
         return view('frontend.posts_by_topic')
-            ->with('posts', $posts);
+            ->with('posts', $posts)
+            ->with('topic', $topic);
     }
 
     public function archiveData()
     {
+        $month = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
         if (request()->month) {
             $whereClause =
                 'YEAR(created_at) = ' . request()->year .
                 ' and MONTH(created_at) = ' . request()->month;
+                $date_data = $month[--request()->month].' '.request()->year;
         } else {
             $whereClause =
                 'YEAR(created_at) = ' . request()->year;
+                $date_data = request()->year;
         }
 
         $posts =  Post::whereRaw($whereClause)->where('created_at', '<=', Carbon::now()->subDay())->paginate(100);
         return view('frontend.posts_by_topic')
+            ->with('date_data', $date_data)
             ->with('posts', $posts);
     }
 }
