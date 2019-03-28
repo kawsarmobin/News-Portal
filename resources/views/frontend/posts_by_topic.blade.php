@@ -3,7 +3,7 @@
 <!--Left-->
     @include('includes.frontend.left_side')
 <!--Center-->
-<div class="col-7 pl-0" style="font-family: lato; padding-top: 35px;">
+<div class="col-md-7 col-sm-12 main-tab" style="font-family: lato; padding-top: 35px;">
     <div class="my-4">
         @if ($posts->count())
         <!--Include posts segment-->

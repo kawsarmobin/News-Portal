@@ -70,4 +70,58 @@ h4 {
         text-align: right !important;
         border-right: 1px solid #BDBDBD
     }
+    .right-bar{
+        padding-left: 0 !important;
+    }
+    .main-tab{
+        padding-left: 0 !important;
+    }
+    .avater .avater-name{
+        margin-left: -30px;
+    }
+}
+.custom-topic-header{
+    border-left: 4px solid #B92B27;
+    background: #fff;
+}
+.custom-topic-header p{
+    padding: 10px 10px 10px 20px;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+}
+.main-heading{
+    background: #fff;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    border: 1px solid #E5E5E5;
+    border-radius: 5px;
+    padding: 0 10px;
+}
+.main-heading h4{
+    margin-bottom: 0;
+    
+}
+.card{
+    border: 1px solid #E5E5E5 !important;
+    border-radius: 5px !important;
+}
+.post-text{
+    text-align: justify !important;
+
+}
+.topics-card hr{
+    margin-top: 5px;
+}
+.topics-card li a{
+    display: block;
+    padding: 5px 10px;
+    margin-bottom: 4px;
+    background: #fff;
+    border-bottom: 1px dotted #ccc;
+}
+@media only screen and (max-width: 712px) {
+.avater .avater-name{
+    margin-left: 30px;
+}
 }

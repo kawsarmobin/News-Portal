@@ -3,19 +3,15 @@
 <!--Left-->
     @include('includes.frontend.left_side')
 <!--Center-->
-<div class="col-7 pl-0" style="font-family: lato">
+<div class="col-md-7 col-sm-12 main-tab" style="font-family: lato;">
     <div class="my-4">
         <!--Recent post-->
-        <div class="row" style="margin: 0 15px -14px 15px; padding-bottom: -5px;">
-            <div class="col-sm-6">
-                <h4 class="padding: 0; margin:0; vertical-align: middle"><b>Today</b></h4>
-            </div>
-            <div class="col-sm-6">
-                <a class="float-right" style=" margin-left: 10px; text-decoration: none; color: gray;" href="{{ route('own-posts.create') }}">New</a>
-                <a class="float-right" style=" text-decoration: none; color: gray" href="{{ route('own-posts.create') }}">Popular</a>
-            </div>
+        <div class="d-flex main-heading">
+                <div class="mr-auto p-2"><h4>Today</h4></div>
+                <div class="p-2"><a href="{{ route('own-posts.create') }}">Popular</a></div>
+                <div class="p-2"><a href="#">New</a></div>
         </div>
-
+        
         @if ($posts->count())
         <!--Include posts segment-->
     @include('includes.frontend.posts_segment')

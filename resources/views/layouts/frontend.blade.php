@@ -38,25 +38,25 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
                         <a class="nav-link" href="{{ url('/') }}">
-                            @include('includes.frontend.homeSV') Home |
+                            <i class="fa fa-home" aria-hidden="true"></i> Home 
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     @if (auth()->check())
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('own-posts.create') }}">
-                            @include('includes.frontend.postSV') Post |
+                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Post 
                         </a>
                     </li>
                     @endif
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('topic.follows.index') }}">
-                            @include('includes.frontend.topicSV') Topic |
+                                <i class="fa fa-th-list" aria-hidden="true"></i> Topic 
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('archives.index') }}">
-                            @include('includes.frontend.homeSV') Archive |
+                                <i class="fa fa-archive" aria-hidden="true"></i> Archive 
                         </a>
                     </li>
                     @if (auth()->check())

@@ -1,11 +1,19 @@
-<div class="col-3" style="margin-top: 59px; position: static">
-    <div class="card">
-        <h5 class="card-header">Topics</h5>
-        <div class="card-body">
+<div class="col-md-3 col-sm-12 my-4" >
+    <div class="custom-topic-header">
+        <p>
+                @if (auth()->check())
+                My 
+            @endif
+            Topics
+        </p>
+    </div>
+    <div class="topics-card">
+        
+        <div class="topic-item">
             @if ($num_of_topics = $topics->count()) @foreach ($topics as $topic)
-            <li style="list-style-image: url({{ asset('img/star.png') }});"><a href="{{ route('topic.posts', ['slug' => $topic->slug]) }}">{{ $topic->name }}</a></li>
+            <li class="list-unstyled"><a href="{{ route('topic.posts', ['slug' => $topic->slug]) }}"><i class="fa fa-angle-double-right" aria-hidden="true"></i>  {{ $topic->name }}</a></li>
             @if (--$num_of_topics)
-            <hr> @endif @endforeach @else
+             @endif @endforeach @else
             <div>
                 <h5>No topics yet...</h5>
             </div>
