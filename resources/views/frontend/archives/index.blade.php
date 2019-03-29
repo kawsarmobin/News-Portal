@@ -3,7 +3,7 @@
 <!--Left-->
     @include('includes.frontend.left_side')
 <!--Center-->
-<div class="col-md-7 col-sm-12 main-tab" style="font-family: lato">
+<div class="col-lg-7 col-sm-12 main-tab" style="font-family: lato">
     <div class="my-4">
         <div class="main-heading">
             <div class="p-2 text-center"><h4>Posts Archive</h4></div>
@@ -59,7 +59,7 @@
             </div>
             <!--Vote option-->
             <div style="padding: 0 0 0 18px">
-                <a class="btn btn-sm btn-danger" href="">Vote <span class="badge badge-light">4</span></a>
+                <app-vote :post="{{ $post }}"></app-vote>
             </div>
         </section>
         @endforeach

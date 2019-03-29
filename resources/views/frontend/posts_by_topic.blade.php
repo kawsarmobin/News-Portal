@@ -3,7 +3,7 @@
 <!--Left-->
     @include('includes.frontend.left_side')
 <!--Center-->
-<div class="col-md-7 col-sm-12 main-tab" style="font-family: lato;">
+<div class="col-lg-7 col-sm-12 main-tab" style="font-family: lato;">
     <div class="my-4">
         <div class="main-heading">
             <div class="p-2 text-center"><h4>{{ isset($topic)?$topic->name:null }} {{ isset($date_data)?$date_data:null }}</h4></div>

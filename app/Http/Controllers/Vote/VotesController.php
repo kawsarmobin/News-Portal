@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Vote;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use App\Events\VoteAction;
+use App\Models\Frontend\Post;
 
 class VotesController extends Controller
 {
@@ -22,10 +24,13 @@ class VotesController extends Controller
             ]);
         }
 
+        broadcast(new VoteAction(Post::findOrfail($post_id)))->toOthers();
+
         if(request()->expectsJson()){
             return response()->json([
                 'message' => $post_id,
             ]);
         }
+        return '';
     }
 }

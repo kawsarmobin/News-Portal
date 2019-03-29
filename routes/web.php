@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Frontend\Post;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -70,3 +72,7 @@ Route::get('/topic/{slug}/posts', 'Frontend\HomeController@postsByTopic')->name(
 Route::get('/archive', 'Frontend\HomeController@archiveData')->name('home.archive');
 /* Vote */
 Route::post('/vote/{post_id}', 'Vote\VotesController@vote')->name('vote');
+
+Route::get('/popular', function () {
+    return Post::orderBy('votes_count', 'DESC')->get();
+});

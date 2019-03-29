@@ -26,6 +26,17 @@
                 this.votes_count++;
                 this.is_voted = true;
             }
+        },
+        created(){
+            Echo.channel('vote-events-'+this.post_id)
+            .listen('VoteAction', function (event) {
+                Fire.$emit('VotesCount'+event.data.id,event)
+            })
+        },
+        mounted(){
+            Fire.$on('VotesCount'+this.post_id,(data)=>{
+                this.votes_count = data.data.votes_count
+            });
         }
     }
 </script>

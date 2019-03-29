@@ -3,7 +3,7 @@
 <!--Left-->
     @include('includes.frontend.left_side')
 <!--Center-->
-<div class="col-md-7 col-sm-12 main-tab" style="font-family: lato;">
+<div class="col-lg-7 col-sm-12 main-tab" style="font-family: lato;">
     <div class="my-4">
         <!--Recent post-->
         <div class="d-flex main-heading">
@@ -18,7 +18,7 @@
 
         <!--Pagination-->
         <div class="row justify-content-center">
-            <div class="col-md-6">
+            <div class="col-lg-6">
                 {{ $posts->links() }}
             </div>
         </div>

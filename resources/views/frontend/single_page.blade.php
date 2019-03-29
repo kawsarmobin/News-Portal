@@ -3,7 +3,7 @@
 <!--Left-->
     @include('includes.frontend.left_side')
 <!--Center-->
-<div class="col-md-7 col-sm-12 main-tab" style="font-family: lato;">
+<div class="col-lg-7 col-sm-12 main-tab" style="font-family: lato;">
     <div class="my-4">
         <section class="card pb-4 mb-3">
             <div class="row post-part">
@@ -55,7 +55,7 @@
             </div>
             <!--Vote option-->
             <div style="padding: 0 0 0 18px">
-                <a class="btn btn-sm btn-danger" href="">Vote <span class="badge badge-light">4</span></a>
+                <app-vote :post="{{ $post }}"></app-vote>
             </div>
         </section>
     </div>

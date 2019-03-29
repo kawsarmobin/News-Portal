@@ -1,4 +1,4 @@
-<div class="col-sm-12 col-md-2 right-bar my-4">
+<div class="col-sm-12 col-lg-2 right-bar my-4">
     <div class="card">
         <h5 class="card-header text-center bg-light">Archives</h5>
         <div class="card-body p-0 m-3">

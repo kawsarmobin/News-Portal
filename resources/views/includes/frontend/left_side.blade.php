@@ -1,4 +1,4 @@
-<div class="col-md-3 col-sm-12 mt-4 navbar-expand-md navbar-light">
+<div class="col-lg-3 col-sm-12 mt-4 navbar-expand-lg navbar-light">
     <div class="custom-topic-header">
         <div class="d-flex">
             <div class="">
