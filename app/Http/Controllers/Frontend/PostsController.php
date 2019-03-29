@@ -17,6 +17,7 @@ class PostsController extends Controller
      */
     public function index()
     {
+        return auth()->user()->posts;
         return view('frontend.own.posts.index')
                 ->with('posts', auth()->user()->posts);
     }

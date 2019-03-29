@@ -13928,7 +13928,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(12);
-module.exports = __webpack_require__(44);
+module.exports = __webpack_require__(43);
 
 
 /***/ }),
@@ -13952,7 +13952,7 @@ window.Vue = __webpack_require__(36);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', __webpack_require__(40));
+Vue.component('app-vote', __webpack_require__(40));
 
 var app = new Vue({
   el: '#app'
@@ -48702,7 +48702,7 @@ var normalizeComponent = __webpack_require__(41)
 /* script */
 var __vue_script__ = __webpack_require__(42)
 /* template */
-var __vue_template__ = __webpack_require__(43)
+var __vue_template__ = __webpack_require__(48)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -48719,7 +48719,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/js/components/ExampleComponent.vue"
+Component.options.__file = "resources/js/components/Vote.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -48728,9 +48728,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-299e239e", Component.options)
+    hotAPI.createRecord("data-v-40e744d5", Component.options)
   } else {
-    hotAPI.reload("data-v-299e239e", Component.options)
+    hotAPI.reload("data-v-40e744d5", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -48861,202 +48861,64 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    mounted: function mounted() {
-        console.log('Component mounted.');
+    props: ['post'],
+    data: function data() {
+        return {
+            post_id: this.post.id,
+            votes_count: this.post.votes_count,
+            is_voted: this.post.is_voted
+        };
+    },
+
+    methods: {
+        voteDisabled: function voteDisabled() {
+            return this.is_voted;
+        }
     }
 });
 
 /***/ }),
 /* 43 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 44 */,
+/* 45 */,
+/* 46 */,
+/* 47 */,
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", {}, [
-      _c("div", { staticClass: "row clearfix" }, [
-        _c("div", { staticClass: "col-lg-3 col-md-3 col-sm-6 col-xs-12" }, [
-          _c("div", { staticClass: "info-box bg-pink hover-expand-effect" }, [
-            _c("div", { staticClass: "icon" }, [
-              _c("i", { staticClass: "material-icons" }, [
-                _vm._v("playlist_add_check")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "content" }, [
-              _c("div", { staticClass: "text" }, [_vm._v("NEW TASKS")]),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "number count-to",
-                  attrs: {
-                    "data-from": "0",
-                    "data-to": "125",
-                    "data-speed": "15",
-                    "data-fresh-interval": "20"
-                  }
-                },
-                [_vm._v("125")]
-              )
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-lg-3 col-md-3 col-sm-6 col-xs-12" }, [
-          _c("div", { staticClass: "info-box bg-cyan hover-expand-effect" }, [
-            _c("div", { staticClass: "icon" }, [
-              _c("i", { staticClass: "material-icons" }, [_vm._v("help")])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "content" }, [
-              _c("div", { staticClass: "text" }, [_vm._v("NEW TICKETS")]),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "number count-to",
-                  attrs: {
-                    "data-from": "0",
-                    "data-to": "257",
-                    "data-speed": "1000",
-                    "data-fresh-interval": "20"
-                  }
-                },
-                [_vm._v("257")]
-              )
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-lg-3 col-md-3 col-sm-6 col-xs-12" }, [
-          _c(
-            "div",
-            { staticClass: "info-box bg-light-green hover-expand-effect" },
-            [
-              _c("div", { staticClass: "icon" }, [
-                _c("i", { staticClass: "material-icons" }, [_vm._v("forum")])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "content" }, [
-                _c("div", { staticClass: "text" }, [_vm._v("NEW COMMENTS")]),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "number count-to",
-                    attrs: {
-                      "data-from": "0",
-                      "data-to": "243",
-                      "data-speed": "1000",
-                      "data-fresh-interval": "20"
-                    }
-                  },
-                  [_vm._v("243")]
-                )
-              ])
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-lg-3 col-md-3 col-sm-6 col-xs-12" }, [
-          _c("div", { staticClass: "info-box bg-orange hover-expand-effect" }, [
-            _c("div", { staticClass: "icon" }, [
-              _c("i", { staticClass: "material-icons" }, [_vm._v("person_add")])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "content" }, [
-              _c("div", { staticClass: "text" }, [_vm._v("NEW VISITORS")]),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "number count-to",
-                  attrs: {
-                    "data-from": "0",
-                    "data-to": "1225",
-                    "data-speed": "1000",
-                    "data-fresh-interval": "20"
-                  }
-                },
-                [_vm._v("1225")]
-              )
-            ])
-          ])
-        ])
+  return _c("div", [
+    _c("a", { staticClass: "btn btn-sm btn-danger" }, [
+      _c("i", {
+        staticClass: "fa fa-thumbs-o-up",
+        attrs: { "aria-hidden": "true" }
+      }),
+      _vm._v("   Vote  "),
+      _c("span", { staticClass: "badge badge-light" }, [
+        _vm._v(" " + _vm._s(_vm.votes_count))
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-299e239e", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-40e744d5", module.exports)
   }
 }
-
-/***/ }),
-/* 44 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
