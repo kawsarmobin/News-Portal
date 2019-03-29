@@ -13928,7 +13928,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(12);
-module.exports = __webpack_require__(43);
+module.exports = __webpack_require__(44);
 
 
 /***/ }),
@@ -48702,7 +48702,7 @@ var normalizeComponent = __webpack_require__(41)
 /* script */
 var __vue_script__ = __webpack_require__(42)
 /* template */
-var __vue_template__ = __webpack_require__(48)
+var __vue_template__ = __webpack_require__(43)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -48875,22 +48875,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         voteDisabled: function voteDisabled() {
             return this.is_voted;
+        },
+        vote: function vote() {
+            axios.post('/vote/' + this.post_id).then(function (res) {
+                console.log(res.data.message);
+            });
+            this.votes_count++;
+            this.is_voted = true;
         }
     }
 });
 
 /***/ }),
 /* 43 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 44 */,
-/* 45 */,
-/* 46 */,
-/* 47 */,
-/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -48898,16 +48895,29 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("a", { staticClass: "btn btn-sm btn-danger" }, [
-      _c("i", {
-        staticClass: "fa fa-thumbs-o-up",
-        attrs: { "aria-hidden": "true" }
-      }),
-      _vm._v("   Vote  "),
-      _c("span", { staticClass: "badge badge-light" }, [
-        _vm._v(" " + _vm._s(_vm.votes_count))
-      ])
-    ])
+    _c(
+      "button",
+      {
+        staticClass: "btn btn-sm btn-danger text-white",
+        attrs: { disabled: _vm.is_voted },
+        on: {
+          click: function($event) {
+            $event.preventDefault()
+            return _vm.vote($event)
+          }
+        }
+      },
+      [
+        _c("i", {
+          staticClass: "fa fa-thumbs-o-up",
+          attrs: { "aria-hidden": "true" }
+        }),
+        _vm._v("   Vote  "),
+        _c("span", { staticClass: "badge badge-light" }, [
+          _vm._v(" " + _vm._s(_vm.votes_count))
+        ])
+      ]
+    )
   ])
 }
 var staticRenderFns = []
@@ -48919,6 +48929,12 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-40e744d5", module.exports)
   }
 }
+
+/***/ }),
+/* 44 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

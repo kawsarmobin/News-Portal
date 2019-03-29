@@ -1,6 +1,6 @@
 <template>
     <div>
-        <a class="btn btn-sm btn-danger"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> &nbsp; Vote &nbsp;<span class="badge badge-light"> {{ votes_count }}</span></a>
+        <button @click.prevent="vote" :disabled="is_voted" class="btn btn-sm btn-danger text-white"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> &nbsp; Vote &nbsp;<span class="badge badge-light"> {{ votes_count }}</span></button>
     </div>
 </template>
 
@@ -17,6 +17,14 @@
         methods: {
             voteDisabled(){
                 return this.is_voted;
+            },
+            vote(){
+                axios.post('/vote/'+this.post_id)
+                .then(res => {
+                    console.log(res.data.message)
+                })
+                this.votes_count++;
+                this.is_voted = true;
             }
         }
     }

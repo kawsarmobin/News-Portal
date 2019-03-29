@@ -69,4 +69,4 @@ Route::get('/topic/{slug}/posts', 'Frontend\HomeController@postsByTopic')->name(
 /* Home archive */
 Route::get('/archive', 'Frontend\HomeController@archiveData')->name('home.archive');
 /* Vote */
-Route::post('/vote', 'Vote\VotesController@vote')->name('vote');
+Route::post('/vote/{post_id}', 'Vote\VotesController@vote')->name('vote');
