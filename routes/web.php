@@ -74,5 +74,5 @@ Route::get('/archive', 'Frontend\HomeController@archiveData')->name('home.archiv
 Route::post('/vote/{post_id}', 'Vote\VotesController@vote')->name('vote');
 
 Route::get('/popular', function () {
-    return Post::orderBy('votes_count', 'DESC')->get();
+    return Post::orderBy('votes_count', 'DESC')->where('votes_count','!=','0')->get();
 });

@@ -9,11 +9,10 @@ use Illuminate\Support\Facades\DB;
 class Post extends Model
 {
     protected $fillable = [
-        'user_id', 'topic_id', 'title', 'slug', 'summery', 'source_link', 'token',
+        'user_id', 'topic_id', 'title', 'slug', 'summery', 'source_link', 'token','votes_count',
     ];
 
     protected $appends = [
-        'votes_count',
         'is_voted'
     ];
 
@@ -31,11 +30,6 @@ class Post extends Model
     {
         $this->attributes['title'] = $value;
         $this->attributes['slug'] = str_slug($value . ' ' . time());
-    }
-
-    public function getVotesCountAttribute()
-    {
-        return DB::table('votes')->where('post_id',$this->id)->count();
     }
 
     public function getIsVotedAttribute()

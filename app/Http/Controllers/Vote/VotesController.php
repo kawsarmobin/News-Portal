@@ -12,6 +12,7 @@ class VotesController extends Controller
 {
     public function vote($post_id)
     {
+        $post = Post::findOrfail($post_id);
         if(auth()->check()){
             DB::table('votes')->insert([
                 'user_id' => auth()->user()->id,
@@ -24,7 +25,9 @@ class VotesController extends Controller
             ]);
         }
 
-        broadcast(new VoteAction(Post::findOrfail($post_id)))->toOthers();
+        $post->increment('votes_count');
+
+        broadcast(new VoteAction($post))->toOthers();
 
         if(request()->expectsJson()){
             return response()->json([
