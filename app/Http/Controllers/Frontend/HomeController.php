@@ -19,9 +19,18 @@ class HomeController extends Controller
                 ->orWhere('topic_user.user_id', $user_id)
                 ->orderBy('topics.id')->pluck('topics.id')->toArray();
 
-            $posts = Post::whereIn('topic_id', $topic_ids)->where('created_at', '>=', Carbon::now()->subDay())->latest()->with(['topic', 'user'])->paginate(100);
+                if (config('archive.archive_check')) {
+                    $posts = Post::whereIn('topic_id', $topic_ids)->where('created_at', '>=', Carbon::now()->subDay())->latest()->with(['topic', 'user'])->paginate(100);
+                } else {
+                    $posts = Post::whereIn('topic_id', $topic_ids)->latest()->with(['topic', 'user'])->paginate(100);
+                }
+
         } else {
-            $posts = Post::where('created_at', '>=', Carbon::now()->subDay())->latest()->with(['topic', 'user'])->paginate(100);
+            if (config('archive.archive_check')) {
+                $posts = Post::where('created_at', '>=', Carbon::now()->subDay())->latest()->with(['topic', 'user'])->paginate(100);
+            } else {
+                $posts = Post::latest()->with(['topic', 'user'])->paginate(100);
+            }
         }
 
         return view('welcome')

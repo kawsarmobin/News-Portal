@@ -59,11 +59,13 @@
                                     <i class="fa fa-th-list" aria-hidden="true"></i> Topic
                                 </a>
                             </li>
+                            @if (config('archive.archive_check'))
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('archives.index') }}">
                                     <i class="fa fa-archive" aria-hidden="true"></i> Archive
                                 </a>
                             </li>
+                            @endif
                             @if (auth()->check())
                             <div class="btn-group">
                                 <a class="nav-link profile" href="#" data-toggle="dropdown" aria-haspopup="true"

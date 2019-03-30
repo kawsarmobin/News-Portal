@@ -19,11 +19,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $arch = $this->archive();
         Schema::defaultStringLength(191);
         View::share('topics', $this->topics());
-        View::share('archives', $arch['archives']);
-        View::share('archive_years', $arch['archive_years']);
+        
+        if (config('archive.archive_check')) {
+            $arch = $this->archive();
+            View::share('archives', $arch['archives']);
+            View::share('archive_years', $arch['archive_years']);
+        }
     }
 
     private function archive()
