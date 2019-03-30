@@ -19,12 +19,16 @@
                 return this.is_voted;
             },
             vote(){
-                axios.post('/vote/'+this.post_id)
-                .then(res => {
-                    console.log(res.data.message)
-                })
-                this.votes_count++;
-                this.is_voted = true;
+                if(!this.is_voted){
+                    axios.post('/vote/'+this.post_id)
+                    .then(res => {
+                        console.log(res.data.message)
+                    })
+                    this.votes_count++;
+                    this.is_voted = true;
+                }else{
+                    alert('Already voted');
+                }
             }
         },
         created(){

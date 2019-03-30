@@ -59024,11 +59024,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             return this.is_voted;
         },
         vote: function vote() {
-            axios.post('/vote/' + this.post_id).then(function (res) {
-                console.log(res.data.message);
-            });
-            this.votes_count++;
-            this.is_voted = true;
+            if (!this.is_voted) {
+                axios.post('/vote/' + this.post_id).then(function (res) {
+                    console.log(res.data.message);
+                });
+                this.votes_count++;
+                this.is_voted = true;
+            } else {
+                alert('Already voted');
+            }
         }
     },
     created: function created() {
