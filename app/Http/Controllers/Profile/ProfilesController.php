@@ -71,8 +71,8 @@ class ProfilesController extends Controller
         }
 
         //Upload File
-        $avatar->move(User::PATH, $avatar_name);
-        copy(User::PATH.'/'.$avatar_name, User::THUMBNAIL_PATH.'/'.$avatar_name);
+        $avatar->move('public/'.User::PATH, $avatar_name);
+        copy('public/'.User::PATH.'/'.$avatar_name, 'public/'.User::THUMBNAIL_PATH.'/'.$avatar_name);
 
 
         //Resize image here
