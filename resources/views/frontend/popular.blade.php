@@ -6,7 +6,7 @@
 <div class="col-lg-7 col-sm-12 main-tab" style="font-family: lato;">
     <div class="my-4">
         <!--Recent post-->
-        @include('includes.top_panel', ['title'=>'Today'])
+        @include('includes.top_panel', ['title'=>'Popular'])
         
         @if ($posts->count())
         <!--Include posts segment-->

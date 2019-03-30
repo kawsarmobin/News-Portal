@@ -74,8 +74,8 @@ Route::get('/all-topic', 'Frontend\TopicFollowsController@index')->name('topic.f
 Route::get('/topic/{slug}/posts', 'Frontend\HomeController@postsByTopic')->name('topic.posts');
 /* Vote */
 Route::post('/vote/{post_id}', 'Vote\VotesController@vote')->name('vote');
-
-Route::get('/popular', function () {
-    return Post::orderBy('votes_count', 'DESC')->where('votes_count', '!=', '0')->get();
-});
+/* Popular */
+Route::get('/popular', 'Frontend\HomeController@popular')->name('home.popular');
+/* New*/
+Route::get('/new', 'Frontend\HomeController@new')->name('home.new');
 
