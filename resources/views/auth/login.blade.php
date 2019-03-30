@@ -54,7 +54,7 @@
                     </form>
                     <hr>
                     <div class="text-center">
-                        <p>Create new account <a href="{{ route('register') }}">Sign up</a></p>
+                        <p>Create new account? <a href="{{ route('register') }}">Sign Up</a></p>
                     </div>
                 </div>
             </div>

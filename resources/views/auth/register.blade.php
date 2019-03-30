@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 
 @section('content')
-<div class="container pt-5">
+<div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -105,6 +105,10 @@
                             </div>
                         </div>
                     </form>
+                    <hr>
+                    <div class="text-center">
+                        <p>Already have an account? <a href="{{ route('login') }}">Sign In</a></p>
+                    </div>
                 </div>
             </div>
         </div>

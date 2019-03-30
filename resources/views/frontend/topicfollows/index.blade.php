@@ -23,6 +23,10 @@
                                     <td style=" padding: 5px">
                                         <a style="text-decoration: none" href="{{ route('topic.follows.follow', $topic['id']) }}" class="{{ $topic->isFollowed()?'text-secondary':'text-primary' }}">{{ $topic->isFollowed()?'Unfollow':'Follow' }}</a> 
                                     </td>
+                                    @else
+                                        <td style=" padding: 5px">
+                                            <a style="text-decoration: none" href="{{ route('topic.follows.follow', $topic['id']) }}" class="text-primary">Follow</a> 
+                                        </td>
                                     @endif
                                 </tr>
                                 @endforeach

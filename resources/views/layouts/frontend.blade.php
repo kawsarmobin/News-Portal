@@ -100,9 +100,9 @@
                                 </div>
                             </div>
                             @else
-                            <div class="btn-group">
-                                <a class="profile nav-link" href="{{ route('login') }}"> <i
-                                        class="fa fa-sign-in text-gray"></i> Sign In</a>
+                            <div class="btn-group active-profile">
+                                <a class="profile nav-link {{ Request::is('login')?'active':'' }}" href="{{ route('login') }}"> <i class="fa fa-sign-in text-gray"></i> Sign In</a>
+                                <a class="profile nav-link {{ Request::is('register')?'active':'' }}" href="{{ route('register') }}"> <i class="fa fa-user-plus text-gray"></i> Sign Up</a>
                             </div>
                             @endif
                         </ul>

@@ -39,7 +39,7 @@
                     </div>
                     @else 
                     <div class="card-body text-center">
-                        <h2>No posts yet...</h2>
+                        <h2>No topics yet...</h2>
                     </div>
                     @endif
                 </div>
