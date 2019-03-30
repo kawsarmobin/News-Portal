@@ -14,7 +14,7 @@ class AddSlugColumnTopicsTable extends Migration
     public function up()
     {
         Schema::table('topics', function (Blueprint $table) {
-            $table->string('slug');
+            $table->string('slug')->after('name');
         });
     }
 

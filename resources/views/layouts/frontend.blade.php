@@ -67,8 +67,8 @@
                             </li>
                             @endif
                             @if (auth()->check())
-                            <div class="btn-group">
-                                <a class="nav-link profile" href="#" data-toggle="dropdown" aria-haspopup="true"
+                            <div class="btn-group active-profile">
+                                <a class="nav-link profile {{ Request::is('own-posts') || Request::is('posts-link-list') || Request::is('profile') || Request::is('topics')?'active':'' }}" href="#" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">
                                     @if (auth()->user()->avatar)
                                     <img width="25px" class="rounded-circle"

@@ -187,3 +187,7 @@ a:hover{
     color: #B92B27 !important;
     background-color:#fff !important;
 }
+.active-profile a.active{
+    color: #B92B27 !important;
+    background-color:#fff !important;
+}
