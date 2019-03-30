@@ -8,9 +8,9 @@
             </div>
             
             <div class="col-lg-4 footer-text-center">
-                <a class="footer-color" href="">About Us</a> <br>
-                <a class="footer-color" href="">Terms & Conditions</a> <br>
-                <a class="footer-color" href="">Privacy Policy</a>
+                <a class="footer-color" href="{{ route('footer.about') }}">About Us</a> <br>
+                <a class="footer-color" href="{{ route('footer.terms.condition') }}">Terms & Conditions</a> <br>
+                <a class="footer-color" href="{{ route('footer.privacy.policy') }}">Privacy Policy</a>
                 <hr class="d-lg-none bg-light">
             </div>
             <div class="col-lg-4 footer-text-right footer-color"> 

@@ -78,4 +78,8 @@ Route::post('/vote/{post_id}', 'Vote\VotesController@vote')->name('vote');
 Route::get('/popular', 'Frontend\HomeController@popular')->name('home.popular');
 /* New*/
 Route::get('/new', 'Frontend\HomeController@new')->name('home.new');
+/* Footer */
+Route::get('/about', 'Frontend\FooterController@about')->name('footer.about');
+Route::get('/terms-and-condition', 'Frontend\FooterController@terms')->name('footer.terms.condition');
+Route::get('/privacy-policy', 'Frontend\FooterController@privacy')->name('footer.privacy.policy');
 
