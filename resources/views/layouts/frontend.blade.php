@@ -41,27 +41,27 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="navbar-nav main-nav ml-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="{{ url('/') }}">
+                            <li class="nav-item">
+                                <a class="nav-link {{ Request::is('/*')?'active':'' }}" href="{{ url('/') }}">
                                     <i class="fa fa-home" aria-hidden="true"></i> Home
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>
                             @if (auth()->check())
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('own-posts.create') }}">
+                                <a class="nav-link {{ Request::is('own-posts/create')?'active':'' }}" href="{{ route('own-posts.create') }}">
                                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Post
                                 </a>
                             </li>
                             @endif
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('topic.follows.index') }}">
+                                <a class="nav-link {{ Request::is('all-topic')?'active':'' }}" href="{{ route('topic.follows.index') }}">
                                     <i class="fa fa-th-list" aria-hidden="true"></i> Topic
                                 </a>
                             </li>
                             @if (config('archive.archive_check'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('archives.index') }}">
+                                <a class="nav-link {{ Request::is('archives')?'active':'' }}" href="{{ route('archives.index') }}">
                                     <i class="fa fa-archive" aria-hidden="true"></i> Archive
                                 </a>
                             </li>
@@ -80,13 +80,13 @@
                                     Profile
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item profile-item" href="{{ route('own-posts.index') }}">My
+                                    <a class="dropdown-item profile-item {{ Request::is('own-posts')?'active':'' }}" href="{{ route('own-posts.index') }}">My
                                         Posts</a>
-                                    <a class="dropdown-item profile-item" href="{{ route('own-posts.post_link') }}">My
+                                    <a class="dropdown-item profile-item {{ Request::is('posts-link-list')?'active':'' }}" href="{{ route('own-posts.post_link') }}">My
                                         Posts Link</a>
-                                    <a class="dropdown-item profile-item" href="{{ route('profile.index') }}">My
+                                    <a class="dropdown-item profile-item {{ Request::is('profile')?'active':'' }}" href="{{ route('profile.index') }}">My
                                         Information</a>
-                                    <a class="dropdown-item profile-item" href="{{ route('topics.index') }}">My
+                                    <a class="dropdown-item profile-item {{ Request::is('topics')?'active':'' }}" href="{{ route('topics.index') }}">My
                                         Topics</a>
                                     <a class="dropdown-item profile-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
@@ -118,13 +118,7 @@
             </div>
 
             <!-- Footer -->
-            <footer class="py-3 bg-dark">
-                <div class="container">
-                    <p class="m-0 text-center text-white">Copyright @include('includes.copyright') Summify. All rights
-                        reserved.</p>
-                </div>
-                <!-- /.container -->
-            </footer>
+            @include('includes.frontend.footer')
         </div>
 
         <!-- Bootstrap core JavaScript -->

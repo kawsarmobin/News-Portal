@@ -79,6 +79,12 @@ h4 {
     .avater .avater-name{
         margin-left: -30px;
     }
+    .footer-text-right {
+        padding-left: 10% !important;
+    }
+    .footer-text-center {
+        padding-left: 13% !important;
+    }
 }
 .custom-topic-header{
     border-left: 4px solid #B92B27;
@@ -167,3 +173,17 @@ a:hover{
 /* .topic-toggle-button{
     margin-top: 5px;
 } */
+
+.footer-color {
+    color: whitesmoke !important;
+}
+.footer-post-margin{
+    margin: 1px !important;
+}
+.main-nav .nav-item a.active{
+    color: #B92B27 !important;
+}
+.dropdown-menu a.active{
+    color: #B92B27 !important;
+    background-color:#fff !important;
+}

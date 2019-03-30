@@ -17,9 +17,8 @@ class PostsController extends Controller
      */
     public function index()
     {
-        return auth()->user()->posts;
         return view('frontend.own.posts.index')
-                ->with('posts', auth()->user()->posts);
+            ->with('posts', auth()->user()->posts);
     }
 
     /**
@@ -30,20 +29,20 @@ class PostsController extends Controller
     public function create()
     {
         $user_id = auth()->user()->id;
-        $topics = Topic::select(['topics.id','topics.name'])
-                        ->leftJoin('topic_user','topics.id','=','topic_user.topic_id')
-                        ->where('topics.user_id', $user_id)
-                        ->orWhere('topic_user.user_id', $user_id)
-                        ->orderBy('topics.name')->get();
+        $topics = Topic::select(['topics.id', 'topics.name'])
+            ->leftJoin('topic_user', 'topics.id', '=', 'topic_user.topic_id')
+            ->where('topics.user_id', $user_id)
+            ->orWhere('topic_user.user_id', $user_id)
+            ->orderBy('topics.name')->get();
 
         if ($topics->count() == 0) {
             Session::flash('info', 'You must have some topics before attempting to create a post.');
             return back();
-            }
+        }
 
         return view('frontend.own.posts.create')
-                ->with('topics', $topics)
-                ->with('post', new Post());
+            ->with('topics', $topics)
+            ->with('post', new Post());
     }
 
     /**
@@ -55,7 +54,7 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         $attributes = $this->validatePosts();
-        
+
         $attributes['topic_id'] = $request->topic;
         $attributes['user_id'] = auth()->user()->id;
         $attributes['token'] = str_random(60);
@@ -64,7 +63,7 @@ class PostsController extends Controller
             Session::flash('success', 'Post has been added successfull.');
         }
 
-        return redirect()->route('own-posts.link',$post->id);
+        return redirect()->route('own-posts.link', $post->id);
     }
 
     /**
@@ -76,7 +75,7 @@ class PostsController extends Controller
     public function show(Post $own_post)
     {
         return view('frontend.own.posts.show')
-                ->with('post', $own_post);
+            ->with('post', $own_post);
     }
 
     /**
@@ -88,8 +87,8 @@ class PostsController extends Controller
     public function edit(Post $own_post)
     {
         return view('frontend.own.posts.edit')
-                ->with('topics', Topic::orderBy('name')->get())
-                ->with('post', $own_post);
+            ->with('topics', Topic::orderBy('name')->get())
+            ->with('post', $own_post);
     }
 
     /**
@@ -102,7 +101,7 @@ class PostsController extends Controller
     public function update(Request $request, Post $own_post)
     {
         $attributes = $this->validatePosts();
-        
+
         $attributes['topic_id'] = $request->topic;
         $attributes['user_id'] = auth()->user()->id;
         $attributes['token'] = str_random(60);
@@ -142,12 +141,12 @@ class PostsController extends Controller
     public function link(Post $own_post)
     {
         return view('frontend.own.posts.link')
-                ->with('post', $own_post);
+            ->with('post', $own_post);
     }
 
     public function post_link()
     {
         return view('frontend.own.posts.externel_link')
-                ->with('post_link_lists', auth()->user()->posts);
+            ->with('post_link_lists', auth()->user()->posts);
     }
 }

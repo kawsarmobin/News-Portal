@@ -21,6 +21,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
         View::share('topics', $this->topics());
+        View::share('footer_posts', $this->popularFooter());
         
         if (config('archive.archive_check')) {
             $arch = $this->archive();
@@ -60,6 +61,12 @@ class AppServiceProvider extends ServiceProvider
         } else {
             return Topic::orderBy('name')->get();
         }
+    }
+
+    private function popularFooter()
+    {
+        
+        return Post::select(['id', 'title', 'token'])->orderBy('votes_count', 'DESC')->where('votes_count', '!=', '0')->latest()->take(5)->get();
     }
 
     /**
