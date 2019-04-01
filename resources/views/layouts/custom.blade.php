@@ -113,7 +113,7 @@
             <!-- Footer -->
             <div class="legal">
                 <div class="copyright text-center">
-                    &copy;
+                    @include('includes.copyright') {{ config('app.name') }}. All rights reserved.
                 </div>
             </div>
             <!-- #Footer -->

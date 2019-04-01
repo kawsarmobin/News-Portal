@@ -59008,6 +59008,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['post'],
@@ -59061,7 +59064,7 @@ var render = function() {
     _c(
       "button",
       {
-        staticClass: "btn btn-sm btn-danger text-white",
+        staticClass: "btn btn-sm btn-outline-danger pt-3 pb-3 pl-4 pr-4",
         attrs: { disabled: _vm.is_voted },
         on: {
           click: function($event) {
@@ -59072,11 +59075,11 @@ var render = function() {
       },
       [
         _c("i", {
-          staticClass: "fa fa-thumbs-o-up",
+          staticClass: "fa fa-sort-up fa-2x",
           attrs: { "aria-hidden": "true" }
         }),
-        _vm._v("   Vote  "),
-        _c("span", { staticClass: "badge badge-light" }, [
+        _vm._v(" "),
+        _c("p", { staticClass: "vote-counter" }, [
           _vm._v(" " + _vm._s(_vm.votes_count))
         ])
       ]

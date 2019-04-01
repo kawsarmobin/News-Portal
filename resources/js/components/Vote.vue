@@ -1,6 +1,9 @@
 <template>
     <div>
-        <button @click.prevent="vote" :disabled="is_voted" class="btn btn-sm btn-danger text-white"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> &nbsp; Vote &nbsp;<span class="badge badge-light"> {{ votes_count }}</span></button>
+        <button @click.prevent="vote" :disabled="is_voted" class="btn btn-sm btn-outline-danger pt-3 pb-3 pl-4 pr-4">
+            <i class="fa fa-sort-up fa-2x" aria-hidden="true"></i>
+            <p class="vote-counter"> {{ votes_count }}</p>
+            </button>
     </div>
 </template>
 

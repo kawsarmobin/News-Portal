@@ -25,7 +25,8 @@
 </div>
 <div class="form-group">
     <label class="control-label">Summery: </label>
-    <textarea class="form-control{{ $errors->has('summery') ? ' is-invalid' : '' }}" name="summery" id="ckeditor" cols="30" rows="6">{{ old('summery', $post->summery) }}</textarea>
+    {{-- <textarea class="form-control{{ $errors->has('summery') ? ' is-invalid' : '' }}" name="summery" id="ckeditor" cols="30" rows="6">{{ old('summery', $post->summery) }}</textarea> --}}
+    <textarea class="form-control{{ $errors->has('summery') ? ' is-invalid' : '' }}" name="summery" cols="30" rows="6">{{ old('summery', $post->summery) }}</textarea>
     
     @if ($errors->has('summery'))
         <span class="invalid-feedback" role="alert">

@@ -29,6 +29,6 @@
 
 <footer class="text-white p-2" style="background-color: #2F2F2F">
     <p class="m-0 text-center">Copyright
-    @include('includes.copyright') Summify. All rights reserved.
+    @include('includes.copyright') {{ config('app.name') }}. All rights reserved.
     </p>
 </footer>

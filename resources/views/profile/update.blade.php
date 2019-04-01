@@ -55,6 +55,7 @@
                                             <p>Lorem ipsum...</p>
                                         </div>
                                     </div> --}}
+                                    @if ($profile->avatar)
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-3">
@@ -65,6 +66,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @endif
                                     <div class="form-group">
                                         <label for="avatar">Avatar</label><br>
                                         <input class="{{ $errors->has('avatar') ? ' is-invalid' : '' }}" type="file" name="avatar">                                        

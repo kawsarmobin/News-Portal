@@ -11,7 +11,7 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>Summify</title>
+        <title>{{ config('app.name') }}</title>
 
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -34,7 +34,9 @@
             <!-- Navigation -->
             <nav class="navbar navbar-expand-lg fixed-top color-main navbar-light">
                 <div class="container">
-                    <a class="navbar-brand" href="{{ url('/') }}">Summify</a>
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        <img src="{{ asset('img/logo.png') }}" alt="" width="230px">
+                    </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -47,18 +49,20 @@
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>
-                            @if (auth()->check())
+                            {{-- @if (auth()->check()) --}}
                             <li class="nav-item">
                                 <a class="nav-link {{ Request::is('own-posts/create')?'active':'' }}" href="{{ route('own-posts.create') }}">
                                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Post
                                 </a>
                             </li>
-                            @endif
+                            {{-- @endif --}}
+                            @if (config('topics.topic_change'))
                             <li class="nav-item">
                                 <a class="nav-link {{ Request::is('all-topic')?'active':'' }}" href="{{ route('topic.follows.index') }}">
                                     <i class="fa fa-th-list" aria-hidden="true"></i> Topic
                                 </a>
                             </li>
+                            @endif
                             @if (config('archive.archive_check'))
                             <li class="nav-item">
                                 <a class="nav-link {{ Request::is('archives')?'active':'' }}" href="{{ route('archives.index') }}">
@@ -66,11 +70,11 @@
                                 </a>
                             </li>
                             @endif
-                            @if (auth()->check())
+                            {{-- @if (auth()->check()) --}}
                             <div class="btn-group active-profile">
-                                <a class="nav-link profile {{ Request::is('own-posts') || Request::is('posts-link-list') || Request::is('profile') || Request::is('topics')?'active':'' }}" href="#" data-toggle="dropdown" aria-haspopup="true"
+                                <a class="nav-link profile {{ Request::is('own-posts') || Request::is('posts-link-list') || Request::is('profile') || Request::is('topics')?'active':'' || Request::is('login')?'active':'' || Request::is('register')?'active':'' }}" href="#" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">
-                                    @if (auth()->user()->avatar)
+                                    @if (auth()->check() && auth()->user()->avatar)
                                     <img width="25px" class="rounded-circle"
                                         src="{{ auth()->user()->avatar_thumbnail }}" width="80%" alt="">
                                     @else
@@ -79,7 +83,8 @@
                                     @endif
                                     Profile
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-right">
+                                <div class="dropdown-menu dropdown-menu-right" style="margin-top: 8px;">
+                                    @if (auth()->check())
                                     <a class="dropdown-item profile-item {{ Request::is('own-posts')?'active':'' }}" href="{{ route('own-posts.index') }}">My
                                         Posts</a>
                                     <a class="dropdown-item profile-item {{ Request::is('posts-link-list')?'active':'' }}" href="{{ route('own-posts.post_link') }}">My
@@ -97,14 +102,13 @@
                                         style="display: none;">
                                         @csrf
                                     </form>
+                                    @else
+                                        <a class="dropdown-item profile-item {{ Request::is('login')?'active':'' }}" href="{{ route('login') }}"> <i class="fa fa-sign-in text-gray"></i> Sign In</a>
+                                        <a class="dropdown-item profile-item {{ Request::is('register')?'active':'' }}" href="{{ route('register') }}"> <i class="fa fa-user-plus text-gray"></i> Sign Up</a>    
+                                    @endif
                                 </div>
                             </div>
-                            @else
-                            <div class="btn-group active-profile">
-                                <a class="profile nav-link {{ Request::is('login')?'active':'' }}" href="{{ route('login') }}"> <i class="fa fa-sign-in text-gray"></i> Sign In</a>
-                                <a class="profile nav-link {{ Request::is('register')?'active':'' }}" href="{{ route('register') }}"> <i class="fa fa-user-plus text-gray"></i> Sign Up</a>
-                            </div>
-                            @endif
+                            {{-- @endif --}}
                         </ul>
                     </div>
                 </div>

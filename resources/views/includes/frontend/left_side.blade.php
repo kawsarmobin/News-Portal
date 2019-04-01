@@ -1,3 +1,4 @@
+@if (config('topics.topic_change'))
 <div class="col-lg-3 col-sm-12 mt-4 navbar-expand-lg navbar-light">
     <div class="custom-topic-header">
         <div class="d-flex">
@@ -40,3 +41,5 @@
         </div>
     </div>
 </div>
+
+@endif
