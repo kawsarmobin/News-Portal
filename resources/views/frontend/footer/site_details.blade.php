@@ -3,7 +3,7 @@
 <!--Left-->
     @include('includes.frontend.left_side')
 <!--Center-->
-<div class="col-lg-7 col-sm-12 main-tab" style="font-family: lato">
+<div class="col-lg-7 col-sm-12 main-tab mt-3" style="font-family: lato">
     <div class="my-4">
         <div class="main-heading">
             <div class="p-2 text-center">
