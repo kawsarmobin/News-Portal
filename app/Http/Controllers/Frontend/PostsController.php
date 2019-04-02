@@ -33,6 +33,7 @@ class PostsController extends Controller
             ->leftJoin('topic_user', 'topics.id', '=', 'topic_user.topic_id')
             ->where('topics.user_id', $user_id)
             ->orWhere('topic_user.user_id', $user_id)
+            ->groupBy('topics.id','topics.name')
             ->orderBy('topics.name')->get();
 
         if ($topics->count() == 0) {

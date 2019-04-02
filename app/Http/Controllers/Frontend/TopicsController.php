@@ -102,12 +102,11 @@ class TopicsController extends Controller
     public function destroy(Topic $topic)
     {
         $this->authorize('delete-topic', $topic);
-        // if ($topic->delete()) {
-        //     Session::flash('success', 'Topic['.$topic->name.'] has been deleted.');
-        // }
+        if ($topic->delete()) {
+            Session::flash('success', 'Topic['.$topic->name.'] has been deleted.');
+        }
 
-        // return redirect()->route('topics.index');
-        return $topic->posts->count();
+        return redirect()->route('topics.index');
     }
 
     public function validateTopic()

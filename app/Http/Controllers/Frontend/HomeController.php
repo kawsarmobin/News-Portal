@@ -60,6 +60,7 @@ class HomeController extends Controller
             $topic_ids = Topic::leftJoin('topic_user', 'topics.id', '=', 'topic_user.topic_id')
                 ->where('topics.user_id', $user_id)
                 ->orWhere('topic_user.user_id', $user_id)
+                ->groupBy('topics.id')
                 ->orderBy('topics.id')->pluck('topics.id')->toArray();
 
                 if (config('archive.archive_check')) {
@@ -100,6 +101,7 @@ class HomeController extends Controller
             $topic_ids = Topic::leftJoin('topic_user', 'topics.id', '=', 'topic_user.topic_id')
                 ->where('topics.user_id', $user_id)
                 ->orWhere('topic_user.user_id', $user_id)
+                ->groupBy('topics.id')
                 ->orderBy('topics.id')->pluck('topics.id')->toArray();
 
                 if (config('archive.archive_check')) {
@@ -127,6 +129,7 @@ class HomeController extends Controller
             $topic_ids = Topic::leftJoin('topic_user', 'topics.id', '=', 'topic_user.topic_id')
                 ->where('topics.user_id', $user_id)
                 ->orWhere('topic_user.user_id', $user_id)
+                ->groupBy('topics.id')
                 ->orderBy('topics.id')->pluck('topics.id')->toArray();
 
                 if (config('archive.archive_check')) {

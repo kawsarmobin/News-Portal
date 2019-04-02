@@ -74,6 +74,8 @@
             </div>
         </section>
 
+        <hr class="bg-secondary">
+
         @if ($posts->count())
         <!--Include posts segment-->
         @include('includes.frontend.posts_segment')
