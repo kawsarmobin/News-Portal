@@ -133,7 +133,7 @@ class PostsController extends Controller
         return request()->validate([
             'topic' => 'required',
             'title' => 'required|string|min:2|max:80',
-            'summery' => 'required|min:2|max:400',
+            'summery' => 'required',
             'source_link' => 'nullable|url',
         ]);
     }

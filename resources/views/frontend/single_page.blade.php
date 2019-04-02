@@ -1,4 +1,10 @@
 @extends('layouts.frontend') 
+
+@section('meta')
+<meta name="title" content="{{ $post->title }}">
+<meta name="description" content="{!! $post->summery !!}">
+@endsection
+
 @section('content')
 <!--Left-->
     @include('includes.frontend.left_side')

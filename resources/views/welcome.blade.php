@@ -1,4 +1,10 @@
-@extends('layouts.frontend') 
+@extends('layouts.frontend')
+
+@section('meta')
+<meta name="title" content="News1120.com - I’m busy, get to the point!">
+<meta name="description" content="News Summarized for busy people">
+@endsection
+
 @section('content')
 <!--Left-->
     @include('includes.frontend.left_side')

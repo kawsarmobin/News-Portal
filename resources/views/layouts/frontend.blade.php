@@ -5,8 +5,7 @@
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="title" content="News1120.com - I’m busy, get to the point!">
-        <meta name="description" content="News Summarized for busy people">
+        @yield('meta')
         <meta name="author" content="">
 
         <!-- CSRF Token -->
