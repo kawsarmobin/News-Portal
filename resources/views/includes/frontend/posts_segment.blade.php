@@ -3,20 +3,20 @@
     <!--Main content-->
     <div class=" pr-3 pl-3 mr-3 ml-3 mt-3">
         <div class="row">
-            <div class="col-9">
+            <div class="col-9 cus-font">
                 <div>
-                    <h2 class="post-title"><b><a style="text-decoration: none; "  href="{{ route('post.single.page', $post->token) }}">{{ $post->title }}</a></b></h2>
+                    <h2 class="post-title cus-font"><b><a style="text-decoration: none; "  href="{{ route('post.single.page', $post->token) }}">{{ $post->title }}</a></b></h2>
                 </div>
                 <div>
-                    <p style="font-size: 15px; margin: 0"><b>{{ $post->topic->name }}</b> &nbsp; <span style="color: gray">{{ $post->created_at->diffForHumans() }}</span></p>
+                    <p class="cus-font" style="font-size: 15px; margin: 0"><b>{{ $post->topic->name }}</b> &nbsp; <span style="color: gray">{{ $post->created_at->diffForHumans() }}</span></p>
                 </div>
                 <div class="post-text">
                     <div>
-                        <p class="text-justify">{!! $post->summery !!}</p>
+                        <p class="text-justify cus-font">{!! $post->summery !!}</p>
                     </div>
                     @if ($post->source_link)
                     <div>
-                        <p style="margin-top: -10px;"><b>Source:</b> <a href="{{ $post->source_link }}" target="_blank">{{ str_limit($post->source_link, 30) }}</a></p>
+                        <p class="cus-font" style="margin-top: -10px;"><b>Source:</b> <a href="{{ $post->source_link }}" target="_blank">{{ str_limit($post->source_link, 30) }}</a></p>
                     </div>
                     @endif
                 </div>
@@ -29,7 +29,7 @@
             </div>
         </div>
     </div>
-    <p class="bg-secondary text-white pl-2">Kindly Summarized by</p>
+    <p class="bg-secondary text-white pl-2 cus-font">Kindly Summarized by</p>
     <div class="row post-part" style="margin-top: -25px;">
         <!--Avatar-->
         <div class="row m-0 p-0 avater" style="width: 100%;">
@@ -41,17 +41,17 @@
                 @endif
             </div>
             <div class="col-10">
-                <div class="mt-4 avater-name">
+                <div class="mt-4 avater-name cus-font">
                     <!--Website name / User name-->
                     @if ($post->user->website)
                     <a href="{{ $post->user->website }}" target="_blank">{{ $post->user->website }}</a>                    
                     @else
-                    <span>{{ $post->user->name }}</span> 
+                    <span class="cus-font">{{ $post->user->name }}</span> 
                     @endif
                     <p>
                         <!--Sybtitle-->
                         @if ($post->user->sub_title)
-                        <span style="color: gray">{{ $post->user->sub_title }}</span> 
+                        <span class="cus-font" style="color: gray">{{ $post->user->sub_title }}</span> 
                         @endif
                     </p>
                 </div>

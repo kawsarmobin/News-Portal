@@ -59,7 +59,7 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 /* Home */
-Route::get('/', 'Frontend\HomeController@index');
+Route::get('/', 'Frontend\HomeController@index')->name('frontend.home');
 if (config('archive.archive_check')) {
     /* Posts archive */
     Route::get('/archives', 'Frontend\ArchivesController@index')->name('archives.index');

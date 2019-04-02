@@ -5,7 +5,7 @@
 <!--Center-->
 <div class="col-lg-7 col-sm-12 main-tab" style="font-family: lato;">
     <div class="my-4">
-        <!--Recent post-->
+        <!--Top panel-->
         @include('includes.top_panel', ['title'=>'Today'])
         
         @if ($posts->count())

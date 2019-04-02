@@ -5,7 +5,8 @@
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
+        <meta name="title" content="News1120.com - I’m busy, get to the point!">
+        <meta name="description" content="News Summarized for busy people">
         <meta name="author" content="">
 
         <!-- CSRF Token -->
@@ -28,14 +29,14 @@
 
     </head>
 
-    <body>
+    <body class="cus-font">
 
-        <div id="app">
+        <div id="app" class="main-bg cus-font">
             <!-- Navigation -->
             <nav class="navbar navbar-expand-lg fixed-top color-main navbar-light">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        <img src="{{ asset('img/logo.png') }}" alt="" width="230px">
+                        <img src="{{ asset('img/logo.png') }}" alt="" width="330px">
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,13 +50,26 @@
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>
-                            {{-- @if (auth()->check()) --}}
+                            @if (auth()->check())
+                            <!--Hover Dropdown-->
                             <li class="nav-item">
-                                <a class="nav-link {{ Request::is('own-posts/create')?'active':'' }}" href="{{ route('own-posts.create') }}">
-                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Post
-                                </a>
+                                <div class="dropdown dd">
+                                    <a class="nav-link {{ Request::is('own-posts/create')?'active':'' }}" href="{{ route('own-posts.create') }}">
+                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Post
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item profile-item {{ Request::is('own-posts')?'active':'' }}" href="{{ route('own-posts.index') }}">My
+                                                Posts</a>
+                                    </div>
+                                </div>
                             </li>
-                            {{-- @endif --}}
+                            @else
+                            <li class="nav-item">
+                                    <a class="nav-link {{ Request::is('own-posts/create')?'active':'' }}" href="{{ route('own-posts.create') }}">
+                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Post
+                                    </a>
+                                </li>
+                            @endif
                             @if (config('topics.topic_change'))
                             <li class="nav-item">
                                 <a class="nav-link {{ Request::is('all-topic')?'active':'' }}" href="{{ route('topic.follows.index') }}">
@@ -72,40 +86,41 @@
                             @endif
                             {{-- @if (auth()->check()) --}}
                             <div class="btn-group active-profile">
-                                <a class="nav-link profile {{ Request::is('own-posts') || Request::is('posts-link-list') || Request::is('profile') || Request::is('topics')?'active':'' || Request::is('login')?'active':'' || Request::is('register')?'active':'' }}" href="#" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    @if (auth()->check() && auth()->user()->avatar)
-                                    <img width="25px" class="rounded-circle"
-                                        src="{{ auth()->user()->avatar_thumbnail }}" width="80%" alt="">
-                                    @else
-                                    <img width="25px" class="rounded-circle" src="{{ asset('img/avatar.gif') }}"
-                                        width="80%" alt="">
-                                    @endif
-                                    Profile
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right" style="margin-top: 8px;">
-                                    @if (auth()->check())
-                                    <a class="dropdown-item profile-item {{ Request::is('own-posts')?'active':'' }}" href="{{ route('own-posts.index') }}">My
-                                        Posts</a>
-                                    <a class="dropdown-item profile-item {{ Request::is('posts-link-list')?'active':'' }}" href="{{ route('own-posts.post_link') }}">My
-                                        Posts Link</a>
-                                    <a class="dropdown-item profile-item {{ Request::is('profile')?'active':'' }}" href="{{ route('profile.index') }}">My
-                                        Information</a>
-                                    <a class="dropdown-item profile-item {{ Request::is('topics')?'active':'' }}" href="{{ route('topics.index') }}">My
-                                        Topics</a>
-                                    <a class="dropdown-item profile-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                <div class="dropdown dd">
+                                    <a class="nav-link profile {{ Request::is('own-posts') || Request::is('posts-link-list') || Request::is('profile') || Request::is('topics')?'active':'' || Request::is('login')?'active':'' || Request::is('register')?'active':'' }}">
+                                        @if (auth()->check() && auth()->user()->avatar)
+                                        <img width="25px" class="rounded-circle"
+                                            src="{{ auth()->user()->avatar_thumbnail }}" width="80%" alt="">
+                                        @else
+                                        <img width="25px" class="rounded-circle" src="{{ asset('img/avatar.gif') }}"
+                                            width="80%" alt="">
+                                        @endif
+                                        Profile
                                     </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                        style="display: none;">
-                                        @csrf
-                                    </form>
-                                    @else
-                                        <a class="dropdown-item profile-item {{ Request::is('login')?'active':'' }}" href="{{ route('login') }}"> <i class="fa fa-sign-in text-gray"></i> Sign In</a>
-                                        <a class="dropdown-item profile-item {{ Request::is('register')?'active':'' }}" href="{{ route('register') }}"> <i class="fa fa-user-plus text-gray"></i> Sign Up</a>    
-                                    @endif
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        @if (auth()->check())
+                                        <a class="dropdown-item profile-item {{ Request::is('own-posts')?'active':'' }}" href="{{ route('own-posts.index') }}">My
+                                            Posts</a>
+                                        <a class="dropdown-item profile-item {{ Request::is('posts-link-list')?'active':'' }}" href="{{ route('own-posts.post_link') }}">My
+                                            Posts Link</a>
+                                        <a class="dropdown-item profile-item {{ Request::is('profile')?'active':'' }}" href="{{ route('profile.index') }}">My
+                                            Information</a>
+                                        <a class="dropdown-item profile-item {{ Request::is('topics')?'active':'' }}" href="{{ route('topics.index') }}">My
+                                            Topics</a>
+                                        <a class="dropdown-item profile-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+    
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                            style="display: none;">
+                                            @csrf
+                                        </form>
+                                        @else
+                                            <a class="dropdown-item profile-item {{ Request::is('login')?'active':'' }}" href="{{ route('login') }}"> <i class="fa fa-sign-in text-gray"></i> Sign In</a>
+                                            <a class="dropdown-item profile-item {{ Request::is('register')?'active':'' }}" href="{{ route('register') }}"> <i class="fa fa-user-plus text-gray"></i> Sign Up</a>    
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
                             {{-- @endif --}}
@@ -115,7 +130,7 @@
             </nav>
 
             <!-- Page Content -->
-            <div class="container page-content">
+            <div class="container page-content cus-font">
                 <div class="row justify-content-center">
                     @yield('content')
                 </div>
@@ -191,8 +206,20 @@
                     }, 1000);
                 }
             }
-
         </script>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136836716-1"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-136836716-1');
+        </script>
+
+        <!--Displaying The Character Count of a Textarea-->
+        <script src="{{ asset('frontend/js/custom.js') }}"></script>
     </body>
 
 </html>

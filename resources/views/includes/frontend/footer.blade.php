@@ -6,6 +6,12 @@
                 <hr style="background-color: gray; margin: 5px 5px 5px 0px; width: 200px">
                 Email: <a href="mailto:admin@example.com">admin@example.com</a>
                 <hr class="d-lg-none bg-light">
+                <h5 class="text-white mt-lg-3">Total Hits</h5>
+                <hr style="background-color: gray; margin: 5px 5px 5px 0px; width: 200px">
+                <!-- Start of CuterCounter Code -->
+                <a href="http://www.cutercounter.com/" target="_blank"><img src="http://www.cutercounter.com/hits.php?id=gmropkpq&nd=6&style=3" border="0" alt="website counter"></a>
+                <!-- End of CuterCounter Code -->
+                <hr class="d-lg-none bg-light">
             </div>
 
             <div class="col-lg-4 footer-text-center">

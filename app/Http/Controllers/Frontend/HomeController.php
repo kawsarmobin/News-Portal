@@ -6,7 +6,6 @@ use Carbon\Carbon;
 use App\Models\Frontend\Post;
 use App\Models\Frontend\Topic;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -19,7 +18,8 @@ class HomeController extends Controller
     public function singlePage($token)
     {
         return view('frontend.single_page')
-            ->with('post', Post::where('token', $token)->first());
+            ->with('post', Post::where('token', $token)->first())
+            ->with('posts', $this->ex_posts($token));
     }
 
     public function postsByTopic($slug)
@@ -103,7 +103,10 @@ class HomeController extends Controller
                 ->orderBy('topics.id')->pluck('topics.id')->toArray();
 
                 if (config('archive.archive_check')) {
-                    return Post::whereIn('topic_id', $topic_ids)->where('created_at', '>=', Carbon::now()->subDay())->latest()->with(['topic', 'user'])->paginate(100);
+                    return Post::whereIn('topic_id', $topic_ids)
+                                ->where('created_at', '>=', Carbon::now()->subDay())
+                                ->latest()->with(['topic', 'user'])
+                                ->paginate(100);
                 } else {
                     return Post::whereIn('topic_id', $topic_ids)->latest()->with(['topic', 'user'])->paginate(100);
                 }
@@ -113,6 +116,34 @@ class HomeController extends Controller
                 return Post::where('created_at', '>=', Carbon::now()->subDay())->latest()->with(['topic', 'user'])->paginate(100);
             } else {
                 return Post::latest()->with(['topic', 'user'])->paginate(100);
+            }
+        }
+    }
+
+    private function ex_posts($token)
+    {
+        if (auth()->check()) {
+            $user_id = auth()->user()->id;
+            $topic_ids = Topic::leftJoin('topic_user', 'topics.id', '=', 'topic_user.topic_id')
+                ->where('topics.user_id', $user_id)
+                ->orWhere('topic_user.user_id', $user_id)
+                ->orderBy('topics.id')->pluck('topics.id')->toArray();
+
+                if (config('archive.archive_check')) {
+                    return Post::whereIn('topic_id', $topic_ids)
+                                ->where('token', '!=',$token)
+                                ->where('created_at', '>=', Carbon::now()->subDay())
+                                ->latest()->with(['topic', 'user'])
+                                ->paginate(100);
+                } else {
+                    return Post::whereIn('topic_id', $topic_ids)->where('token', '!=',$token)->latest()->with(['topic', 'user'])->paginate(100);
+                }
+
+        } else {
+            if (config('archive.archive_check')) {
+                return Post::where('created_at', '>=', Carbon::now()->subDay())->where('token', '!=',$token)->latest()->with(['topic', 'user'])->paginate(100);
+            } else {
+                return Post::latest()->where('token', '!=',$token)->with(['topic', 'user'])->paginate(100);
             }
         }
     }

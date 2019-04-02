@@ -15,8 +15,13 @@
   </div>
 <div class="form-group">
     <label class="control-label">Title: </label>
-    <input class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" type="text" name="title" value="{{ old('title', $post->title) }}" placeholder="Enter your title">
+    <input class="post_title form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" id="the-textarea" maxlength="80" type="text" name="title" value="{{ old('title', $post->title) }}" placeholder="Enter your title" autofocus>
     
+    <div class="float-right" id="the-title-count">
+        <span id="current_title">0</span>
+        <span id="maximum_title">/ 80</span>
+    </div>
+
     @if ($errors->has('title'))
         <span class="invalid-feedback" role="alert">
             <strong>{{ $errors->first('title') }}</strong>
@@ -26,8 +31,11 @@
 <div class="form-group">
     <label class="control-label">Summery: </label>
     {{-- <textarea class="form-control{{ $errors->has('summery') ? ' is-invalid' : '' }}" name="summery" id="ckeditor" cols="30" rows="6">{{ old('summery', $post->summery) }}</textarea> --}}
-    <textarea class="form-control{{ $errors->has('summery') ? ' is-invalid' : '' }}" name="summery" cols="30" rows="6">{{ old('summery', $post->summery) }}</textarea>
-    
+    <textarea class="post_textarea form-control{{ $errors->has('summery') ? ' is-invalid' : '' }}" id="the-textarea" maxlength="400" name="summery" cols="30" rows="6" autofocus>{{ old('summery', $post->summery) }}</textarea>
+    <div class="float-right" id="the-count">
+        <span id="current">0</span>
+        <span id="maximum">/ 400</span>
+    </div>
     @if ($errors->has('summery'))
         <span class="invalid-feedback" role="alert">
             <strong>{{ $errors->first('summery') }}</strong>
