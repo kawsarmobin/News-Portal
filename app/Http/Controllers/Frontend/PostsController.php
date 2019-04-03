@@ -28,22 +28,19 @@ class PostsController extends Controller
      */
     public function create()
     {
-        $user_id = auth()->user()->id;
-        $topics = Topic::select(['topics.id', 'topics.name'])
-            ->leftJoin('topic_user', 'topics.id', '=', 'topic_user.topic_id')
-            ->where('topics.user_id', $user_id)
-            ->orWhere('topic_user.user_id', $user_id)
-            ->groupBy('topics.id','topics.name')
-            ->orderBy('topics.name')->get();
-
-        if ($topics->count() == 0) {
-            Session::flash('info', 'You must have some topics before attempting to create a post.');
-            return back();
+        if (config('topics.topic_post_check')) {
+            if ($this->topics()->count() == 0) {
+                Session::flash('info', 'You must have some topics before attempting to create a post.');
+                return back();
+            }
+    
+            return view('frontend.own.posts.create')
+                ->with('topics', $this->topics())
+                ->with('post', new Post());
+        } else {
+            return view('frontend.own.posts.create')
+                ->with('post', new Post());
         }
-
-        return view('frontend.own.posts.create')
-            ->with('topics', $topics)
-            ->with('post', new Post());
     }
 
     /**
@@ -56,7 +53,9 @@ class PostsController extends Controller
     {
         $attributes = $this->validatePosts();
 
-        $attributes['topic_id'] = $request->topic;
+        if (config('topics.topic_post_check')) {
+            $attributes['topic_id'] = $request->topic;
+        }
         $attributes['user_id'] = auth()->user()->id;
         $attributes['token'] = str_random(60);
 
@@ -87,9 +86,14 @@ class PostsController extends Controller
      */
     public function edit(Post $own_post)
     {
-        return view('frontend.own.posts.edit')
-            ->with('topics', Topic::orderBy('name')->get())
+        if (config('topics.topic_post_check')) {
+            return view('frontend.own.posts.edit')
+            ->with('topics', $this->topics())
             ->with('post', $own_post);
+        } else {
+            return view('frontend.own.posts.edit')
+            ->with('post', $own_post);
+        }
     }
 
     /**
@@ -103,7 +107,9 @@ class PostsController extends Controller
     {
         $attributes = $this->validatePosts();
 
-        $attributes['topic_id'] = $request->topic;
+        if (config('topics.topic_post_check')) {
+            $attributes['topic_id'] = $request->topic;
+        }
         $attributes['user_id'] = auth()->user()->id;
         $attributes['token'] = str_random(60);
 
@@ -131,12 +137,31 @@ class PostsController extends Controller
 
     public function validatePosts()
     {
-        return request()->validate([
-            'topic' => 'required',
-            'title' => 'required|string|min:2|max:80',
-            'summery' => 'required',
-            'source_link' => 'nullable|url',
-        ]);
+        if (config('topics.topic_post_check')) {
+            return request()->validate([
+                'topic' => 'required',
+                'title' => 'required|string|min:2|max:80',
+                'summery' => 'required',
+                'source_link' => 'nullable|url',
+            ]);
+        } else {
+            return request()->validate([
+                'title' => 'required|string|min:2|max:80',
+                'summery' => 'required',
+                'source_link' => 'nullable|url',
+            ]);
+        }
+    }
+
+    public function topics()
+    {
+        $user_id = auth()->user()->id;
+        return Topic::select(['topics.id', 'topics.name'])
+            ->leftJoin('topic_user', 'topics.id', '=', 'topic_user.topic_id')
+            ->where('topics.user_id', $user_id)
+            ->orWhere('topic_user.user_id', $user_id)
+            ->groupBy('topics.id','topics.name')
+            ->orderBy('topics.name')->get();
     }
 
     public function link(Post $own_post)

@@ -14,7 +14,9 @@
                         <tr>
                             <th width="10%">#</th>
                             <th width="20%">Title</th>
+                            @if (config('topics.topic_post_check'))
                             <th width="20%">Topic</th>
+                            @endif
                             <th width="20%">User Name</th>
                             <th width="15%">Post Date</th>
                             <th width="15%">Action</th>
@@ -26,7 +28,9 @@
                                 <tr>
                                     <td>{{ ++$key }}</td>
                                     <td>{{ $post->title }}</td>
-                                    <td>{{ $post->topic->name }}</td>
+                                    @if (config('topics.topic_post_check'))
+                                    <td>{{ $post->topic?$post->topic->name.' ':'' }}</td>
+                                    @endif
                                     <td>{{ $post->user->name }}</td>
                                     <td>{{ $post->created_at->toDateString() }}</td>
                                     <td>

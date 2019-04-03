@@ -22,7 +22,12 @@
                             <h2 class="post-title cus-font"><b>{{ $post->title }}</b></h2>
                         </div>
                         <div>
-                            <p class="cus-font" style="font-size: 15px; margin: 0"><b>{{ $post->topic->name }}</b> &nbsp; <span style="color: gray">{{ $post->created_at->diffForHumans() }}</span></p>
+                            <p class="cus-font" style="font-size: 15px; margin: 0">
+                                @if (config('topics.topic_post_check'))
+                                <b>{{ $post->topic?$post->topic->name.' ':'' }}</b>
+                                @endif
+                                <span style="color: gray">{{ $post->created_at->diffForHumans() }}</span>
+                            </p>
                         </div>
                         <div class="post-text">
                             <div>

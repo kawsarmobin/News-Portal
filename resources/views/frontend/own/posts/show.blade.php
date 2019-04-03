@@ -15,14 +15,16 @@
                     </div>
                     <hr>
                     <table class="table text-justify no-border cus-padding">
+                        @if (config('topics.topic_post_check'))
                         <tr>
-                            <td style="width: 95px">Topic</td>
-                            <td style="width: 1px">:</td>
-                            <td>{{ $post->topic->name }}</td>
-                        </tr>
-                        <tr>
-                            <td>Title</td>
+                            <td>Topic</td>
                             <td>:</td>
+                            <td>{{ $post->topic?$post->topic->name.' ':'' }}</td>
+                        </tr>
+                        @endif
+                        <tr>
+                            <td style="width: 95px">Title</td>
+                            <td style="width: 1px">:</td>
                             <td>{{ $post->title }}</td>
                         </tr>
                         <tr>

@@ -1,4 +1,5 @@
 <div class="form-group">
+    @if (config('topics.topic_post_check'))
     <label for="topic">Topic</label>
     <select class="form-control{{ $errors->has('topic') ? ' is-invalid' : '' }}" name="topic" id="topic">
       <option value="">Pick a topic</option>
@@ -6,6 +7,7 @@
       <option {{ old('topic', $post->topic_id) == $topic->id ? 'selected' : '' }} value="{{ $topic->id }}">{{ $topic->name }}</option>
       @endforeach
     </select>
+    @endif
 
     @if ($errors->has('topic'))
         <span class="invalid-feedback" role="alert">

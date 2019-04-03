@@ -30,8 +30,11 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
     // change password
     Route::get('/admin/profile/change-password', 'Admin\Profile\ProfilesController@change_password')->name('admin.profile.change-password');
     Route::post('/admin/profile/change-password', 'Admin\Profile\ProfilesController@update_password')->name('admin.profile.update-password');
-    /* Topic delete topic */
-    Route::resource('/admin/topics', 'Admin\Topic\TopicsController', ['as' => 'admin'])->only(['index', 'destroy']);
+    /* Post topic check by config */
+    if (config('topics.topic_post_check')){
+        /* Topic delete */
+        Route::resource('/admin/topics', 'Admin\Topic\TopicsController', ['as' => 'admin'])->only(['index', 'destroy']);
+    }
     /* Post delete permission */
     Route::resource('admin/posts', 'Admin\Post\PostsController', ['as' => 'admin'])->only(['index', 'show', 'destroy']);
     /* User permission */
@@ -41,10 +44,13 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
 });
 
 Route::group(['middleware' => ['auth']], function () {
-    /* Own Topics */
-    Route::resource('/topics', 'Frontend\TopicsController');
-    /* Topic Follows */
-    Route::get('/topic/{topic_id}/follow', 'Frontend\TopicFollowsController@follow')->name('topic.follows.follow');
+    /* Post topic check by config */
+    if (config('topics.topic_post_check')){
+        /* Own Topics */
+        Route::resource('/topics', 'Frontend\TopicsController');
+        /* Topic Follows */
+        Route::get('/topic/{topic_id}/follow', 'Frontend\TopicFollowsController@follow')->name('topic.follows.follow');
+    }
     /* Own Post */
     Route::resource('/own-posts', 'Frontend\PostsController');
     /* Posts link */
@@ -68,10 +74,13 @@ if (config('archive.archive_check')) {
 }
 /* Post single page */
 Route::get('/post/{token}', 'Frontend\HomeController@singlePage')->name('post.single.page');
-/* Topic Follows */
-Route::get('/all-topic', 'Frontend\TopicFollowsController@index')->name('topic.follows.index');
-/* Topic wise posts */
-Route::get('/topic/{slug}/posts', 'Frontend\HomeController@postsByTopic')->name('topic.posts');
+/* Post topic check by config */
+if (config('topics.topic_post_check')){
+    /* Topic Follows */
+    Route::get('/all-topic', 'Frontend\TopicFollowsController@index')->name('topic.follows.index');
+    /* Topic wise posts */
+    Route::get('/topic/{slug}/posts', 'Frontend\HomeController@postsByTopic')->name('topic.posts');
+}
 /* Vote */
 Route::post('/vote/{post_id}', 'Vote\VotesController@vote')->name('vote');
 /* Popular */

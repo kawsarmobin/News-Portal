@@ -2,7 +2,6 @@
 <html lang="en">
 
     <head>
-
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         @yield('meta')
@@ -10,26 +9,22 @@
 
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
-
+        <!-- Soft name -->
         <title>{{ config('app.name') }}</title>
-
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <!-- Bootstrap core CSS -->
-
+        <!-- Fav icon -->
+        <link rel="shortcut icon" href="{{{ asset('img/logo.png') }}}">
+        <!-- Font awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- Custom styles for this template -->
         <link href="{{ asset('frontend/css/custom.css') }}" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet">
-
+        <!-- Laravel default core css -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
         <!-- Toaster Css -->
         <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet">
-
     </head>
 
     <body class="cus-font">
-
         <div id="app" class="main-bg cus-font">
             <!-- Navigation -->
             <nav class="navbar navbar-expand-lg fixed-top color-main navbar-light">
@@ -98,14 +93,12 @@
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right">
                                         @if (auth()->check())
-                                        <a class="dropdown-item profile-item {{ Request::is('own-posts')?'active':'' }}" href="{{ route('own-posts.index') }}">My
-                                            Posts</a>
-                                        <a class="dropdown-item profile-item {{ Request::is('posts-link-list')?'active':'' }}" href="{{ route('own-posts.post_link') }}">My
-                                            Posts Link</a>
-                                        <a class="dropdown-item profile-item {{ Request::is('profile')?'active':'' }}" href="{{ route('profile.index') }}">My
-                                            Information</a>
-                                        <a class="dropdown-item profile-item {{ Request::is('topics')?'active':'' }}" href="{{ route('topics.index') }}">My
-                                            Topics</a>
+                                        <a class="dropdown-item profile-item {{ Request::is('own-posts')?'active':'' }}" href="{{ route('own-posts.index') }}">My Posts</a>
+                                        <a class="dropdown-item profile-item {{ Request::is('posts-link-list')?'active':'' }}" href="{{ route('own-posts.post_link') }}">My Posts Link</a>
+                                        <a class="dropdown-item profile-item {{ Request::is('profile')?'active':'' }}" href="{{ route('profile.index') }}">My Information</a>
+                                        @if (config('topics.topic_post_check'))
+                                        <a class="dropdown-item profile-item {{ Request::is('topics')?'active':'' }}" href="{{ route('topics.index') }}">My Topics</a>
+                                        @endif
                                         <a class="dropdown-item profile-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                         document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}

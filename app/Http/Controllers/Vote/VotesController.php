@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Vote;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB;
 use App\Events\VoteAction;
 use App\Models\Frontend\Post;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class VotesController extends Controller
 {

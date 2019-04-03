@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Models\About;
 use App\Models\Term;
+use App\Models\About;
 use App\Models\Privacy;
+use App\Http\Controllers\Controller;
 
 class FooterController extends Controller
 {

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin\Post;
 
-use Illuminate\Http\Request;
 use App\Models\Frontend\Post;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;

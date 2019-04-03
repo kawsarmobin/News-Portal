@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use Illuminate\Http\Request;
-use App\Models\Frontend\Topic;
 use App\Models\Frontend\Post;
+use App\Models\Frontend\Topic;
 
 class HomeController extends Controller
 {
